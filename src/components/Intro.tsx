@@ -109,7 +109,7 @@ export function Intro({ onDone }: { onDone: () => void }) {
           </motion.svg>
 
           <motion.p
-            className="mt-8 text-lg font-semibold tracking-tight"
+            className="mt-8 text-lg font-display font-semibold tracking-tight"
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1.05, ease: [0.16, 1, 0.3, 1] }}

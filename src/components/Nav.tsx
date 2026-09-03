@@ -49,7 +49,7 @@ export function Nav() {
       <nav className="mx-auto flex h-[72px] w-full max-w-6xl items-center justify-between px-6">
         <a href="#inicio" className="flex items-center gap-2.5 text-fg" aria-label={site.name}>
           <AtomMark className="h-6 w-6 text-brand" />
-          <span className="text-[15px] font-semibold tracking-tight">{site.name}</span>
+          <span className="text-[15px] font-display font-semibold tracking-tight">{site.name}</span>
         </a>
 
         <ul className="hidden items-center gap-8 md:flex">

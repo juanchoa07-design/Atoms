@@ -6,7 +6,6 @@ import { Button } from './ui/Button'
 import Aurora from './reactbits/Aurora'
 import BlurText from './reactbits/BlurText'
 import GradientText from './reactbits/GradientText'
-import ShinyText from './reactbits/ShinyText'
 
 export function Hero() {
   const { t, lang } = useLang()
@@ -27,13 +26,7 @@ export function Hero() {
       </div>
 
       <div className="mx-auto flex min-h-[92svh] w-full max-w-6xl flex-col items-center justify-center px-6 py-32 text-center">
-        <p className="inline-flex items-center gap-2 rounded-full border border-line bg-white/[0.03] px-3.5 py-1.5 text-xs">
-          <span className="relative flex h-1.5 w-1.5">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand opacity-60" />
-            <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-brand" />
-          </span>
-          <ShinyText text={t(hero.eyebrow)} color="#8b9099" shineColor="#ffffff" speed={4} delay={1.6} />
-        </p>
+        <p className="eyebrow text-fg-muted">{t(hero.eyebrow)}</p>
 
         {/* The real heading stays plain text for search engines and screen
             readers; the animated copy below is a purely visual duplicate. */}
@@ -42,7 +35,7 @@ export function Hero() {
         </h1>
         <div
           aria-hidden="true"
-          className="mt-8 max-w-4xl text-[clamp(2.6rem,7vw,4.75rem)] font-semibold leading-[1.03]"
+          className="mt-6 max-w-4xl font-display text-[clamp(2.6rem,7vw,4.75rem)] font-semibold leading-[1.08] tracking-[-0.02em]"
         >
           <BlurText
             key={`top-${lang}`}

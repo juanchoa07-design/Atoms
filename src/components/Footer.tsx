@@ -19,7 +19,7 @@ export function Footer() {
           <div>
             <a href="#inicio" className="flex items-center gap-2.5" aria-label={site.name}>
               <AtomMark className="h-6 w-6 text-brand" />
-              <span className="text-[15px] font-semibold tracking-tight">{site.name}</span>
+              <span className="text-[15px] font-display font-semibold tracking-tight">{site.name}</span>
             </a>
             <p className="mt-4 max-w-xs text-sm text-fg-muted">{t(site.tagline)}</p>
           </div>
