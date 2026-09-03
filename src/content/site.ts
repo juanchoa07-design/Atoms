@@ -343,13 +343,13 @@ export const team = [
   {
     name: 'Matías Jordá',
     role: { es: 'Co-Founder & AI Engineer', en: 'Co-Founder & AI Engineer' } satisfies T,
-    photo: '/images/team-matias.webp',
+    photo: 'images/team-matias.webp',
     linkedin: 'https://www.linkedin.com/in/mat%C3%ADas-jord%C3%A1-b663642a3/',
   },
   {
     name: 'Ignacio Miranda',
     role: { es: 'Co-Founder & Software Engineer', en: 'Co-Founder & Software Engineer' } satisfies T,
-    photo: '/images/team-ignacio.webp',
+    photo: 'images/team-ignacio.webp',
     linkedin: 'https://www.linkedin.com/in/ignacio-miranda-7a367b2a9/',
   },
 ]

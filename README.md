@@ -102,8 +102,31 @@ Genera el `.webp` al lado. Después movés el PNG a `assets-originals/` y apunt�
 
 ## Deploy
 
-Vercel detecta Vite solo. Framework preset **Vite**, build `npm run build`, output `dist`.
-La única acción manual es apuntar el proyecto de Vercel a este repo en lugar del viejo.
+Esto es una app React: **no se puede servir el código fuente directo**. El `index.html`
+del repo apunta a `/src/main.tsx`, que el navegador no sabe ejecutar — por eso, sin build,
+se ve una pantalla en blanco. Siempre hay que publicar el resultado de `npm run build`.
+
+### GitHub Pages
+
+Ya está el workflow [`.github/workflows/deploy-pages.yml`](.github/workflows/deploy-pages.yml):
+buildea y publica en cada push a `main`. Una sola vez hay que ir a
+**Settings → Pages → Source** y elegir **GitHub Actions** (si está en "Deploy from a
+branch", Pages sirve el código fuente y se ve en blanco).
+
+Queda en `https://juanchoa07-design.github.io/Atoms/`.
+
+### Vercel
+
+Detecta Vite solo. Framework preset **Vite**, build `npm run build`, output `dist`.
+Hay que apuntar el proyecto de Vercel a este repo en lugar del viejo.
+
+### Sobre el `base`
+
+Pages sirve desde `/Atoms/` y Vercel desde la raíz, así que
+[`vite.config.ts`](vite.config.ts) elige el `base` según la variable `GITHUB_PAGES`, que
+sólo setea el workflow. Por eso las rutas de imágenes en `site.ts` van **sin barra
+inicial** y se arman con `import.meta.env.BASE_URL`. Si agregás un asset nuevo desde
+JavaScript, hacé lo mismo o se va a romper en Pages.
 
 ## Accesibilidad y performance
 

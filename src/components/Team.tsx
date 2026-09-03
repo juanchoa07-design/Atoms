@@ -19,7 +19,7 @@ export function Team() {
             >
               <div className="aspect-[4/5] overflow-hidden bg-gradient-to-b from-white/[0.04] to-transparent">
                 <img
-                  src={member.photo}
+                  src={`${import.meta.env.BASE_URL}${member.photo}`}
                   alt={member.name}
                   loading="lazy"
                   width={900}
