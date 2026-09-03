@@ -63,9 +63,9 @@ export const hero = {
 /** `prefix`/`suffix` frame the animated number rendered by CountUp. */
 export const metrics: { prefix?: string; to: number; suffix: string; label: T }[] = [
   { to: 70, suffix: '%', label: { es: 'menos tiempo de respuesta', en: 'less response time' } },
-  { to: 10, suffix: ' h', label: { es: 'ahorradas por semana', en: 'saved every week' } },
+  { to: 10, suffix: 'h', label: { es: 'ahorradas por semana', en: 'saved every week' } },
   { to: 3, suffix: '×', label: { es: 'productividad del equipo', en: 'team productivity' } },
-  { prefix: 'US$ ', to: 50, suffix: 'k', label: { es: 'de ahorro anual', en: 'saved per year' } },
+  { prefix: 'US$', to: 50, suffix: 'k', label: { es: 'de ahorro anual', en: 'saved per year' } },
 ]
 
 export const metricsCaption: T = {

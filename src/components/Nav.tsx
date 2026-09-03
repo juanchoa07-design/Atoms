@@ -81,7 +81,7 @@ export function Nav() {
       </nav>
 
       {open && (
-        <div className="border-t border-line bg-ink px-6 pb-8 pt-4 md:hidden">
+        <div className="border-y border-line bg-ink px-6 pb-8 pt-4 md:hidden">
           <ul className="flex flex-col">
             {nav.map((item) => (
               <li key={item.id}>
