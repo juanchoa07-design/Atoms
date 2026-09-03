@@ -1,4 +1,4 @@
-import { ArrowUpRight, CalendarCheck } from 'lucide-react'
+import { ArrowDown, CalendarCheck } from 'lucide-react'
 import { hero, site } from '../content/site'
 import { useLang } from '../lib/lang'
 import { AtomMark } from './ui/AtomMark'
@@ -61,15 +61,9 @@ export function Hero() {
             <CalendarCheck className="h-4 w-4" />
             {t(hero.primaryCta)}
           </Button>
-          <Button
-            variant="secondary"
-            href={site.social.youtube}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-6 py-3 text-[15px]"
-          >
+          <Button variant="secondary" href="#services" className="px-6 py-3 text-[15px]">
             {t(hero.secondaryCta)}
-            <ArrowUpRight className="h-4 w-4" />
+            <ArrowDown className="h-4 w-4" />
           </Button>
         </div>
       </div>

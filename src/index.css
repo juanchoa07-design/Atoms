@@ -69,6 +69,15 @@
   }
 }
 
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-50% - 1.75rem));
+  }
+}
+
 @layer components {
   /* Eyebrow label above section titles */
   .eyebrow {

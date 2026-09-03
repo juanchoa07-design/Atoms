@@ -53,12 +53,6 @@ export function Footer() {
                 </a>
               ))}
             </div>
-            <a
-              href={`mailto:${site.email}`}
-              className="mt-6 block font-mono text-xs text-fg-muted transition hover:text-fg"
-            >
-              {site.email}
-            </a>
           </div>
         </div>
 

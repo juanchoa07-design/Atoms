@@ -20,7 +20,7 @@ function initialLang(): Lang {
   } catch {
     /* storage can be blocked — fall through to the browser preference */
   }
-  return navigator.language?.toLowerCase().startsWith('en') ? 'en' : 'es'
+  return navigator.language?.toLowerCase().startsWith('es') ? 'es' : 'en'
 }
 
 export function LangProvider({ children }: { children: ReactNode }) {

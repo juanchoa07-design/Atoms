@@ -11,7 +11,7 @@ function LangToggle() {
 
   return (
     <div className="flex items-center rounded-full border border-line p-0.5" role="group" aria-label="Idioma / Language">
-      {(['es', 'en'] as const).map((code) => (
+      {(['en', 'es'] as const).map((code) => (
         <button
           key={code}
           type="button"
