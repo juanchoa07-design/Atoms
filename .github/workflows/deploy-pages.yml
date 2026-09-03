@@ -28,6 +28,10 @@ jobs:
         env:
           GITHUB_PAGES: 'true'
       - uses: actions/configure-pages@v5
+        with:
+          # Flip the Pages source to "GitHub Actions" so the built dist/ is
+          # served instead of the repo's raw source.
+          enablement: true
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
