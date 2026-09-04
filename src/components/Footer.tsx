@@ -14,7 +14,8 @@ export function Footer() {
   const { t } = useLang()
 
   return (
-    <footer className="border-t border-line">
+    <footer className="relative bg-ink-deep">
+      <div className="rule-grad absolute inset-x-0 top-0" aria-hidden="true" />
       <div className="mx-auto w-full max-w-6xl px-6 py-16">
         <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-[1.5fr_repeat(4,1fr)]">
           {/* Brand */}

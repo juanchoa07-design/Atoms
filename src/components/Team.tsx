@@ -45,9 +45,13 @@ export function Team({ headless = false }: { headless?: boolean } = {}) {
             as="li"
             key={member.name}
             delay={i * 50}
-            className="group flex items-center gap-5 border-t border-line py-6 first:border-t-0 sm:gap-8"
+            className="group relative flex items-center gap-5 border-t border-line py-6 transition-colors duration-300 first:border-t-0 hover:bg-white/[0.015] sm:gap-8"
           >
-            <div className="h-14 w-14 shrink-0 overflow-hidden rounded-full border border-line bg-white/[0.03]">
+            <span
+              aria-hidden="true"
+              className="absolute left-0 top-0 h-px w-0 bg-brand transition-all duration-500 group-hover:w-full"
+            />
+            <div className="h-14 w-14 shrink-0 overflow-hidden rounded-full border border-line bg-white/[0.03] transition-transform duration-500 group-hover:scale-105">
               <Portrait member={member} />
             </div>
 
@@ -87,7 +91,7 @@ export function Team({ headless = false }: { headless?: boolean } = {}) {
   }
 
   return (
-    <Section id="team" eyebrow={t(ui.teamEyebrow)} title={t(ui.teamTitle)} subtitle={t(ui.teamSubtitle)}>
+    <Section id="team" index="04" eyebrow={t(ui.teamEyebrow)} title={t(ui.teamTitle)} subtitle={t(ui.teamSubtitle)}>
       {body}
     </Section>
   )

@@ -9,7 +9,8 @@ export function FinalCta() {
   const { t } = useLang()
 
   return (
-    <section id="contact" className="relative isolate overflow-hidden border-t border-line">
+    <section id="contact" className="grad-abyss relative isolate overflow-hidden">
+      <div className="rule-grad absolute inset-x-0 top-0 z-10" aria-hidden="true" />
       <div className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute left-1/2 top-full h-[30rem] w-[46rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand/12 blur-[130px]" />
         <AtomMark

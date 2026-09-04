@@ -12,6 +12,8 @@ import { TrainingPage } from './pages/TrainingPage'
 import { AboutPage } from './pages/AboutPage'
 import { PodcastPage } from './pages/PodcastPage'
 import { CasesPage } from './pages/CasesPage'
+import { ScrollProgress } from './components/ui/ScrollProgress'
+import { Grain } from './components/ui/Grain'
 import { LangProvider } from './lib/lang'
 import { useRoute } from './lib/router'
 
@@ -56,6 +58,8 @@ export default function App() {
       <Intro onDone={handleIntroDone} />
       {ready && (
         <>
+          <ScrollProgress />
+          <Grain />
           <Nav />
           <main>
             <Router />

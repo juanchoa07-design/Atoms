@@ -9,6 +9,7 @@ export function Process() {
   return (
     <Section
       id="process"
+      index="02"
       eyebrow={t(ui.processEyebrow)}
       title={t(ui.processTitle)}
       subtitle={t(ui.processSubtitle)}

@@ -18,8 +18,12 @@ export function OfferingList({ items }: { items: Offering[] }) {
             as="li"
             key={item.n}
             delay={i * 60}
-            className="group border-t border-line py-9 first:border-t-0 first:pt-0 md:grid md:grid-cols-[auto_minmax(0,22rem)_minmax(0,1fr)] md:items-start md:gap-10"
+            className="group relative border-t border-line py-9 transition-colors duration-300 first:border-t-0 first:pt-0 hover:bg-white/[0.015] md:grid md:grid-cols-[auto_minmax(0,22rem)_minmax(0,1fr)] md:items-start md:gap-10"
           >
+            <span
+              aria-hidden="true"
+              className="absolute left-0 top-0 h-px w-0 bg-brand transition-all duration-500 group-hover:w-full"
+            />
             <div className="flex items-center gap-3 md:w-16">
               <Icon
                 className="h-5 w-5 text-brand transition-transform duration-300 group-hover:scale-110"

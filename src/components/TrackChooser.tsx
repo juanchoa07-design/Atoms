@@ -12,7 +12,8 @@ export function TrackChooser() {
   const { t } = useLang()
 
   return (
-    <section id="explore" className="border-t border-line py-24 sm:py-32">
+    <section id="explore" className="relative py-24 sm:py-32">
+      <div className="rule-grad absolute inset-x-0 top-0" aria-hidden="true" />
       <div className="mx-auto w-full max-w-6xl px-6">
         <div className="grid gap-5 lg:grid-cols-2">
           {tracks.map((track, i) => {
@@ -21,7 +22,7 @@ export function TrackChooser() {
               <Reveal key={track.id} delay={i * 80}>
                 <a href={`#/${track.id}`} className="group block h-full">
                   <SpotlightCard
-                    className="h-full rounded-card border border-line bg-ink-raised transition-colors duration-300 group-hover:border-line-strong"
+                    className="grad-border h-full rounded-card transition-colors duration-300"
                     spotlightColor="rgba(45, 156, 219, 0.16)"
                   >
                     <div className="relative flex h-full flex-col p-8 sm:p-10">

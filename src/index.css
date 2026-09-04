@@ -3,6 +3,8 @@
 @theme {
   /* Surfaces — sampled from the master logo so the artwork sits flush */
   --color-ink: #2b2a2a;
+  --color-ink-deep: #1a1919;
+  --color-ink-abyss: #100f0f;
   --color-ink-raised: #333131;
   --color-ink-hover: #3b3838;
   --color-line: #ffffff1a;
@@ -87,6 +89,77 @@
     letter-spacing: 0.16em;
     text-transform: uppercase;
     color: var(--color-brand);
+  }
+
+  /* Depth: sections sink toward black and lift back to the brand charcoal. */
+  .grad-sink {
+    background: linear-gradient(180deg, var(--color-ink-deep) 0%, var(--color-ink) 55%, var(--color-ink) 100%);
+  }
+
+  .grad-rise {
+    background: linear-gradient(180deg, var(--color-ink) 0%, var(--color-ink-deep) 100%);
+  }
+
+  .grad-abyss {
+    background:
+      radial-gradient(120% 90% at 50% 0%, color-mix(in oklab, var(--color-brand) 12%, transparent) 0%, transparent 62%),
+      linear-gradient(180deg, var(--color-ink) 0%, var(--color-ink-deep) 45%, var(--color-ink-abyss) 100%);
+  }
+
+  /* A hairline that fades in from the edges with a hint of brand at centre. */
+  .rule-grad {
+    height: 1px;
+    border: 0;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      var(--color-line) 18%,
+      color-mix(in oklab, var(--color-brand) 45%, transparent) 50%,
+      var(--color-line) 82%,
+      transparent 100%
+    );
+  }
+
+  /* Gradient border for the home doors, painted with a masked pseudo-element. */
+  .grad-border {
+    position: relative;
+    background:
+      linear-gradient(160deg, color-mix(in oklab, var(--color-ink-raised) 92%, var(--color-brand)) 0%, var(--color-ink) 70%);
+  }
+
+  .grad-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(
+      150deg,
+      color-mix(in oklab, var(--color-brand) 55%, transparent) 0%,
+      var(--color-line) 38%,
+      transparent 70%
+    );
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0.7;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+  }
+
+  .group:hover > .grad-border::before,
+  .grad-border:hover::before {
+    opacity: 1;
+  }
+
+  /* Cream-to-periwinkle wash for a headline word. */
+  .text-grad {
+    background: linear-gradient(100deg, var(--color-fg) 0%, var(--color-brand) 55%, var(--color-brand-deep) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
   }
 
   /* Primary CTA: a sheen that sweeps across on hover. */

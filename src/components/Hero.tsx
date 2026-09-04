@@ -15,7 +15,9 @@ export function Hero() {
     <section id="inicio" className="relative isolate overflow-hidden">
       {/* Backdrop: aurora band, dot grid and an oversized atom outline */}
       <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute inset-x-0 top-0 h-[55vh] opacity-[0.28] [mask-image:linear-gradient(to_bottom,#000_5%,transparent_85%)]">
+        {/* Deep at the crown, brand charcoal by the fold */}
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,var(--color-ink-abyss)_0%,var(--color-ink-deep)_38%,var(--color-ink)_100%)]" />
+        <div className="absolute inset-x-0 top-0 h-[55vh] opacity-[0.34] [mask-image:linear-gradient(to_bottom,#000_5%,transparent_85%)]">
           <Aurora colorStops={['#6D93C8', '#87ABDB', '#3E5675']} amplitude={0.8} blend={0.7} speed={0.45} />
         </div>
         <div className="grid-backdrop absolute inset-0" />
@@ -23,7 +25,7 @@ export function Hero() {
           className="absolute left-1/2 top-1/2 h-[46rem] w-[46rem] -translate-x-1/2 -translate-y-[55%] text-white/[0.035]"
           strokeWidth={0.35}
         />
-        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-ink" />
+        <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-b from-transparent to-ink" />
       </div>
 
       <div className="mx-auto flex min-h-[92svh] w-full max-w-6xl flex-col items-center justify-center px-6 py-32 text-center">
