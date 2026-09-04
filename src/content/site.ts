@@ -4,6 +4,8 @@ import {
   GraduationCap,
   MessagesSquare,
   Mic,
+  Podcast as PodcastIcon,
+  Users,
   Workflow,
   type LucideIcon,
 } from 'lucide-react'
@@ -27,11 +29,12 @@ export const site = {
   },
 }
 
-export const nav: { id: string; label: T }[] = [
-  { id: 'services', label: { en: 'Services', es: 'Servicios' } },
-  { id: 'process', label: { en: 'How we work', es: 'Cómo trabajamos' } },
-  { id: 'team', label: { en: 'Team', es: 'Equipo' } },
-  { id: 'podcast', label: { en: 'Podcast', es: 'Podcast' } },
+/** `href` is either a route (#/x) or an anchor on the home page (#x). */
+export const nav: { href: string; label: T }[] = [
+  { href: '#/services', label: { en: 'Services', es: 'Servicios' } },
+  { href: '#/training', label: { en: 'Training', es: 'Capacitaciones' } },
+  { href: '#/about', label: { en: 'Meet us', es: 'Conocenos' } },
+  { href: '#/podcast', label: { en: 'Podcast', es: 'Podcast' } },
 ]
 
 export const hero = {
@@ -70,113 +73,94 @@ export const clients = {
   ],
 }
 
-export type ServiceGroup = {
-  id: string
-  kicker: T
+export type Offering = {
+  n: string
+  icon: LucideIcon
+  title: T
+  desc: T
+  bullets?: T[]
+}
+
+/**
+ * The two doors on the home page. Each one opens its own page with the full
+ * catalogue instead of dumping everything inline.
+ */
+export const tracks: {
+  id: 'services' | 'training' | 'about' | 'podcast'
+  icon: LucideIcon
+  label: T
   title: T
   blurb: T
-  items: { n: string; icon: LucideIcon; title: T; desc: T; bullets?: T[] }[]
-}
-
-export const serviceGroups: ServiceGroup[] = [
+  teaser: T[]
+  cta: T
+}[] = [
   {
-    id: 'agents',
-    kicker: { en: 'AI agents', es: 'Agentes de IA' },
-    title: { en: 'AI agents for your business', es: 'Agentes de IA para tu negocio' },
+    id: 'services',
+    icon: Workflow,
+    label: { en: 'Services', es: 'Servicios' },
+    title: { en: 'AI agents and systems we build', es: 'Agentes y sistemas de IA que construimos' },
     blurb: {
-      en: 'Deployable agents that talk to your data, your customers and your phone lines — live in weeks, not quarters.',
-      es: 'Agentes listos para desplegar que hablan con tus datos, tus clientes y tus líneas telefónicas — en producción en semanas, no en trimestres.',
+      en: 'Deployable agents and tailor-made software — designed, built and operated end to end.',
+      es: 'Agentes listos para desplegar y software a medida — diseñados, construidos y operados de punta a punta.',
     },
-    items: [
-      {
-        n: '01',
-        icon: Database,
-        title: { en: 'Talk to your data', es: 'Hablá con tus datos' },
-        desc: {
-          en: 'Ask your databases and documents in plain language.',
-          es: 'Preguntale a tus bases de datos y documentos en lenguaje natural.',
-        },
-        bullets: [
-          {
-            en: 'RAG over internal docs, contracts and SOPs',
-            es: 'RAG sobre documentos internos, contratos y procedimientos',
-          },
-          {
-            en: 'Text-to-SQL agents on production databases',
-            es: 'Agentes text-to-SQL sobre bases de datos productivas',
-          },
-          {
-            en: 'Conversational access from Slack, Telegram or web',
-            es: 'Acceso conversacional desde Slack, Telegram o web',
-          },
-        ],
-      },
-      {
-        n: '02',
-        icon: MessagesSquare,
-        title: { en: 'Conversational agents', es: 'Agentes conversacionales' },
-        desc: {
-          en: 'Lead qualification, support and sales on the channels your customers already use.',
-          es: 'Calificación de leads, soporte y ventas en los canales que tus clientes ya usan.',
-        },
-      },
-      {
-        n: '03',
-        icon: Mic,
-        title: { en: 'Voice AI', es: 'Voice AI' },
-        desc: {
-          en: 'Phone agents that book, qualify and resolve.',
-          es: 'Agentes telefónicos que agendan, califican y resuelven.',
-        },
-      },
+    teaser: [
+      { en: 'Talk to your data', es: 'Hablá con tus datos' },
+      { en: 'Conversational agents', es: 'Agentes conversacionales' },
+      { en: 'Voice AI', es: 'Voice AI' },
+      { en: 'End-to-end automations', es: 'Automatizaciones end-to-end' },
+      { en: 'Custom AI software', es: 'Software con IA a medida' },
     ],
+    cta: { en: 'See all services', es: 'Ver todos los servicios' },
   },
   {
-    id: 'tailor',
-    kicker: { en: 'Tailor-made', es: 'A medida' },
-    title: { en: 'Systems built to measure', es: 'Sistemas hechos a medida' },
+    id: 'training',
+    icon: GraduationCap,
+    label: { en: 'Training & consulting', es: 'Capacitaciones y consultorías' },
+    title: { en: 'Get your team ready for AI', es: 'Preparamos a tu equipo para la IA' },
     blurb: {
-      en: 'End-to-end automations and custom software, designed around how your business actually runs.',
-      es: 'Automatizaciones de punta a punta y software a medida, diseñados según cómo funciona tu negocio de verdad.',
+      en: 'Roadmaps, audits and hands-on training so your team can run AI on its own.',
+      es: 'Roadmaps, auditorías y formación práctica para que tu equipo maneje la IA por su cuenta.',
     },
-    items: [
-      {
-        n: '04',
-        icon: Workflow,
-        title: { en: 'End-to-end automations', es: 'Automatizaciones end-to-end' },
-        desc: {
-          en: 'Wire your stack and your work together.',
-          es: 'Conectamos tu stack y tu trabajo en un solo flujo.',
-        },
-        bullets: [
-          {
-            en: 'Integrations across Marketing, ERP, CRM, e-commerce',
-            es: 'Integraciones con Marketing, ERP, CRM y e-commerce',
-          },
-          { en: 'Automated reporting and dashboards', es: 'Reportes y dashboards automáticos' },
-          { en: 'Monitoring, alerting and SLA from day one', es: 'Monitoreo, alertas y SLA desde el día uno' },
-        ],
-      },
-      {
-        n: '05',
-        icon: BrainCircuit,
-        title: { en: 'Custom AI software', es: 'Software con IA a medida' },
-        desc: { en: 'Internal platforms with AI built in.', es: 'Plataformas internas con IA integrada de base.' },
-      },
-      {
-        n: '06',
-        icon: GraduationCap,
-        title: { en: 'Consulting & enablement', es: 'Consultoría y capacitación' },
-        desc: { en: 'Roadmaps, audits and team training.', es: 'Roadmaps, auditorías y formación de equipos.' },
-      },
+    teaser: [
+      { en: 'AI roadmap', es: 'Roadmap de IA' },
+      { en: 'Process and stack audit', es: 'Auditoría de procesos y stack' },
+      { en: 'Team training', es: 'Capacitación de equipos' },
     ],
+    cta: { en: 'See training & consulting', es: 'Ver capacitaciones y consultorías' },
+  },
+  {
+    id: 'about',
+    icon: Users,
+    label: { en: 'Meet us', es: 'Conocenos' },
+    title: { en: 'The people who build it', es: 'La gente que lo construye' },
+    blurb: {
+      en: 'Founders, engineers and operators. You talk to the people writing the code, not to an account manager.',
+      es: 'Fundadores, ingenieros y operadores. Hablás con quienes escriben el código, no con un account manager.',
+    },
+    teaser: [
+      { en: 'Six people, no middlemen', es: 'Seis personas, sin intermediarios' },
+      { en: 'Engineering led by the founders', es: 'Ingeniería liderada por los fundadores' },
+      { en: 'Based in LATAM, working across the Americas', es: 'Desde LATAM, trabajando en toda América' },
+    ],
+    cta: { en: 'Meet the team', es: 'Conocer al equipo' },
+  },
+  {
+    id: 'podcast',
+    icon: PodcastIcon,
+    label: { en: 'Podcast', es: 'Podcast' },
+    title: { en: 'The Atom Voice', es: 'The Atom Voice' },
+    blurb: {
+      en: 'Entrepreneurs, experts and operators on AI, product and what it really takes to build in LATAM.',
+      es: 'Emprendedores, expertos y operadores hablando de IA, producto y lo que de verdad cuesta construir en LATAM.',
+    },
+    teaser: [
+      { en: 'New episodes on YouTube', es: 'Episodios nuevos en YouTube' },
+      { en: 'Guests building across the region', es: 'Invitados que construyen en la región' },
+      { en: 'No fluff, just operators talking', es: 'Sin relleno, operadores hablando' },
+    ],
+    cta: { en: 'Listen to the podcast', es: 'Escuchar el podcast' },
   },
 ]
-
-export const servicesOutro = {
-  text: { en: 'Not sure which fits your operation?', es: '¿No sabés cuál encaja con tu operación?' } satisfies T,
-  cta: { en: 'Schedule a call', es: 'Agendar una llamada' } satisfies T,
-}
 
 export const processSteps: { n: string; when: T; title: T; desc: T; bullets: T[] }[] = [
   {
