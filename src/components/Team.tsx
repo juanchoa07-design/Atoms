@@ -36,11 +36,11 @@ function Portrait({ member }: { member: Member }) {
   )
 }
 
-export function Team() {
+export function Team({ headless = false }: { headless?: boolean } = {}) {
   const { t } = useLang()
 
-  return (
-    <Section id="team" eyebrow={t(ui.teamEyebrow)} title={t(ui.teamTitle)} subtitle={t(ui.teamSubtitle)}>
+  const body = (
+    <>
       <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {team.map((member, i) => (
           <Reveal key={member.name} delay={i * 60}>
@@ -76,6 +76,20 @@ export function Team() {
       <Reveal className="mt-12 border-t border-line pt-10">
         <p className="max-w-2xl text-lg leading-snug text-fg">{t(teamOutro)}</p>
       </Reveal>
+    </>
+  )
+
+  if (headless) {
+    return (
+      <section id="team" className="mx-auto w-full max-w-6xl px-6 py-24 sm:py-28">
+        {body}
+      </section>
+    )
+  }
+
+  return (
+    <Section id="team" eyebrow={t(ui.teamEyebrow)} title={t(ui.teamTitle)} subtitle={t(ui.teamSubtitle)}>
+      {body}
     </Section>
   )
 }

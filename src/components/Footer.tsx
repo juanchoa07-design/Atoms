@@ -28,8 +28,8 @@ export function Footer() {
             <h2 className="text-xs font-medium uppercase tracking-wider text-fg-subtle">{t(ui.quickLinks)}</h2>
             <ul className="mt-4 space-y-3">
               {nav.map((item) => (
-                <li key={item.id}>
-                  <a href={`#${item.id}`} className="text-sm text-fg-muted transition hover:text-fg">
+                <li key={item.href}>
+                  <a href={item.href} className="text-sm text-fg-muted transition hover:text-fg">
                     {t(item.label)}
                   </a>
                 </li>

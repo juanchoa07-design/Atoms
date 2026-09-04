@@ -89,6 +89,28 @@
     color: var(--color-brand);
   }
 
+  /* Primary CTA: a sheen that sweeps across on hover. */
+  .btn-shine {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+  }
+
+  .btn-shine::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(105deg, transparent 38%, rgb(255 255 255 / 0.5) 50%, transparent 62%);
+    transform: translateX(-130%);
+    transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
+  }
+
+  .btn-shine:hover::after,
+  .btn-shine:focus-visible::after {
+    transform: translateX(130%);
+  }
+
   /* Scroll reveal — opt out entirely under reduced motion */
   .reveal {
     opacity: 0;

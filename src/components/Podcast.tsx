@@ -4,16 +4,11 @@ import { useLang } from '../lib/lang'
 import { Section } from './ui/Section'
 import { Reveal } from './ui/Reveal'
 
-export function Podcast() {
+export function Podcast({ headless = false }: { headless?: boolean } = {}) {
   const { t } = useLang()
 
-  return (
-    <Section
-      id="podcast"
-      eyebrow={t(ui.podcastEyebrow)}
-      title={t(podcast.title)}
-      subtitle={t(podcast.blurb)}
-    >
+  const body = (
+    <>
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {podcast.episodes.map((episode, i) => (
           <Reveal key={episode.videoId} delay={i * 80}>
@@ -61,6 +56,20 @@ export function Podcast() {
           <ArrowUpRight className="h-4 w-4" />
         </a>
       </Reveal>
+    </>
+  )
+
+  if (headless) {
+    return (
+      <section id="podcast" className="mx-auto w-full max-w-6xl px-6 py-24 sm:py-28">
+        {body}
+      </section>
+    )
+  }
+
+  return (
+    <Section id="podcast" eyebrow={t(ui.podcastEyebrow)} title={t(podcast.title)} subtitle={t(podcast.blurb)}>
+      {body}
     </Section>
   )
 }

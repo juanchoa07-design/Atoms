@@ -54,8 +54,8 @@ export function Nav() {
 
         <ul className="hidden items-center gap-8 md:flex">
           {nav.map((item) => (
-            <li key={item.id}>
-              <a href={`#${item.id}`} className="text-sm text-fg-muted transition hover:text-fg">
+            <li key={item.href}>
+              <a href={item.href} className="text-sm text-fg-muted transition hover:text-fg">
                 {t(item.label)}
               </a>
             </li>
@@ -84,9 +84,9 @@ export function Nav() {
         <div className="border-y border-line bg-ink px-6 pb-8 pt-4 md:hidden">
           <ul className="flex flex-col">
             {nav.map((item) => (
-              <li key={item.id}>
+              <li key={item.href}>
                 <a
-                  href={`#${item.id}`}
+                  href={item.href}
                   onClick={() => setOpen(false)}
                   className="block border-b border-line py-4 text-lg text-fg-muted transition hover:text-fg"
                 >

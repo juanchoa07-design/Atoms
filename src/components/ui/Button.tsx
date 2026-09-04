@@ -9,8 +9,14 @@ const base =
   'inline-flex items-center justify-center gap-2 rounded-full text-sm font-medium transition duration-200 whitespace-nowrap'
 
 const variants = {
-  primary:
-    'bg-brand px-5 py-2.5 text-[#04121c] hover:bg-[#4bb0e8] hover:shadow-[0_0_28px_-6px_var(--color-brand)]',
+  primary: [
+    'btn-shine px-5 py-2.5 font-semibold text-[#04121c]',
+    'bg-gradient-to-b from-[#54b6ec] to-[#1b87c4]',
+    'shadow-[inset_0_1px_0_rgb(255_255_255/0.3),0_8px_24px_-10px_var(--color-brand)]',
+    'hover:from-[#63bef0] hover:to-[#2093d0]',
+    'hover:shadow-[inset_0_1px_0_rgb(255_255_255/0.35),0_12px_32px_-10px_var(--color-brand)]',
+    'active:translate-y-px',
+  ].join(' '),
   secondary:
     'border border-line-strong bg-white/[0.02] px-5 py-2.5 text-fg hover:border-white/30 hover:bg-white/[0.06]',
   ghost: 'px-2 py-2 text-fg-muted hover:text-fg',

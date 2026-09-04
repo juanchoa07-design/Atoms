@@ -1,14 +1,4 @@
-import {
-  BrainCircuit,
-  Database,
-  GraduationCap,
-  MessagesSquare,
-  Mic,
-  Podcast as PodcastIcon,
-  Users,
-  Workflow,
-  type LucideIcon,
-} from 'lucide-react'
+import { GraduationCap, Podcast as PodcastIcon, Users, Workflow, type LucideIcon } from 'lucide-react'
 
 export type Lang = 'en' | 'es'
 
