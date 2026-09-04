@@ -20,8 +20,8 @@ export function PageHeader({ eyebrow, title, intro }: { eyebrow: string; title: 
           </a>
 
           <p className="eyebrow mt-10">{eyebrow}</p>
-          <h1 className="mt-4 max-w-3xl text-[clamp(2.2rem,5vw,3.5rem)] font-semibold leading-[1.08]">{title}</h1>
-          <p className="mt-6 max-w-2xl text-base leading-relaxed text-fg-muted sm:text-lg">{intro}</p>
+          <h1 className="mt-4 max-w-3xl font-display text-[clamp(1.85rem,3.8vw,2.8rem)] font-medium leading-[1.14]">{title}</h1>
+          <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-fg-muted">{intro}</p>
         </Reveal>
       </div>
     </header>

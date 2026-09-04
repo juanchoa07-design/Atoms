@@ -32,10 +32,10 @@ export function TrackChooser() {
                         <span className="eyebrow">{t(track.label)}</span>
                       </div>
 
-                      <h2 className="mt-7 font-display text-2xl font-semibold leading-tight sm:text-[1.75rem]">
+                      <h2 className="mt-7 font-display text-xl font-medium leading-snug sm:text-[1.4rem]">
                         {t(track.title)}
                       </h2>
-                      <p className="mt-3 text-base leading-relaxed text-fg-muted">{t(track.blurb)}</p>
+                      <p className="mt-3 text-sm leading-relaxed text-fg-muted">{t(track.blurb)}</p>
 
                       <ul className="mt-7 flex-1 space-y-2 border-t border-line pt-6">
                         {track.teaser.map((line) => (

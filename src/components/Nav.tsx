@@ -3,29 +3,8 @@ import { Menu, X } from 'lucide-react'
 import { nav, site, hero } from '../content/site'
 import { useLang } from '../lib/lang'
 import { useScrolled } from '../lib/useScrolled'
+import { LangToggle } from './ui/LangToggle'
 import { Button } from './ui/Button'
-
-function LangToggle() {
-  const { lang, setLang } = useLang()
-
-  return (
-    <div className="flex items-center rounded-full border border-line p-0.5" role="group" aria-label="Idioma / Language">
-      {(['en', 'es'] as const).map((code) => (
-        <button
-          key={code}
-          type="button"
-          onClick={() => setLang(code)}
-          aria-pressed={lang === code}
-          className={`rounded-full px-2.5 py-1 font-mono text-[11px] uppercase transition ${
-            lang === code ? 'bg-white/10 text-fg' : 'text-fg-subtle hover:text-fg-muted'
-          }`}
-        >
-          {code}
-        </button>
-      ))}
-    </div>
-  )
-}
 
 export function Nav() {
   const { t } = useLang()

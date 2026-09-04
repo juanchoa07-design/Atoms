@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 
-export type Route = 'home' | 'services' | 'training' | 'about' | 'podcast'
+export type Route = 'home' | 'services' | 'training' | 'about' | 'podcast' | 'cases'
 
-const ROUTES: Route[] = ['services', 'training', 'about', 'podcast']
+const ROUTES: Route[] = ['services', 'training', 'about', 'podcast', 'cases']
 
 /**
  * Hash routing on purpose: GitHub Pages serves this from a subpath and has no

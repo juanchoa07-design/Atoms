@@ -19,7 +19,7 @@ const variants = {
   ].join(' '),
   secondary:
     'border border-line-strong bg-white/[0.02] px-5 py-2.5 text-fg hover:border-white/30 hover:bg-white/[0.06]',
-  ghost: 'px-2 py-2 text-fg-muted hover:text-fg',
+  ghost: 'px-2 py-2 text-fg-muted underline-offset-4 hover:text-fg hover:underline',
 } as const
 
 export function Button({ variant = 'primary', className = '', children, ...rest }: ButtonProps) {

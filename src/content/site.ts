@@ -36,7 +36,22 @@ export const hero = {
     es: 'Automatización a medida, agentes conversacionales y software con IA. Diseñamos, construimos y operamos para empresas mid-market y enterprise.',
   } satisfies T,
   primaryCta: { en: 'Schedule a call', es: 'Agendar llamada' } satisfies T,
-  secondaryCta: { en: 'See what we build', es: 'Ver qué construimos' } satisfies T,
+  secondaryCta: { en: 'Cases', es: 'Casos' } satisfies T,
+}
+
+export const casesPage = {
+  eyebrow: { en: 'Selected work', es: 'Casos seleccionados' } satisfies T,
+  title: { en: 'Systems we built and run', es: 'Sistemas que construimos y operamos' } satisfies T,
+  intro: {
+    en: "Production deployments, not pilots. Each one designed end to end, integrated to the client's stack, and operated day to day.",
+    es: 'Despliegues en producción, no pilotos. Cada uno diseñado de punta a punta, integrado al stack del cliente y operado día a día.',
+  } satisfies T,
+  /** TODO(atomlabs): add the real case studies here. */
+  items: [] as { client: string; summary: T; result: T }[],
+  emptyNote: {
+    en: 'Case studies are being written up. In the meantime, these are the teams already running our systems.',
+    es: 'Estamos escribiendo los casos. Mientras tanto, estos son los equipos que ya operan con nuestros sistemas.',
+  } satisfies T,
 }
 
 export const clients = {
@@ -76,7 +91,7 @@ export type Offering = {
  * catalogue instead of dumping everything inline.
  */
 export const tracks: {
-  id: 'services' | 'training' | 'about' | 'podcast'
+  id: 'services' | 'training' | 'about' | 'podcast' | 'cases'
   icon: LucideIcon
   label: T
   title: T
@@ -395,14 +410,14 @@ export const podcast = {
 
 export const finalCta = {
   title: {
-    en: 'Tell us what your operation needs.',
-    es: 'Contanos qué necesita tu operación.',
+    en: 'Tell us what you want to automate.',
+    es: 'Contanos qué querés automatizar.',
   } satisfies T,
   text: {
-    en: 'A discovery call with the people who will build it — not a sales rep. We map the problem and tell you straight whether AI is worth it.',
-    es: 'Una llamada de descubrimiento con quienes lo van a construir, no con un vendedor. Mapeamos el problema y te decimos derecho si la IA vale la pena.',
+    en: 'A short form. A real answer. A call if it makes sense.',
+    es: 'Un formulario corto. Una respuesta real. Una llamada si tiene sentido.',
   } satisfies T,
-  button: { en: 'Talk to the team', es: 'Hablar con el equipo' } satisfies T,
+  button: { en: 'Schedule discovery call', es: 'Agendar llamada' } satisfies T,
 }
 
 export const ui = {

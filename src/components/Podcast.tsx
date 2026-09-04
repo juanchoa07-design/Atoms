@@ -16,9 +16,9 @@ export function Podcast({ headless = false }: { headless?: boolean } = {}) {
               href={`https://www.youtube.com/watch?v=${episode.videoId}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="group block overflow-hidden rounded-card border border-line bg-ink-raised transition hover:border-line-strong"
+              className="group block"
             >
-              <div className="relative aspect-video overflow-hidden bg-ink-hover">
+              <div className="relative aspect-video overflow-hidden rounded-lg border border-line bg-ink-raised">
                 <img
                   src={`https://i.ytimg.com/vi/${episode.videoId}/hqdefault.jpg`}
                   alt=""
@@ -32,7 +32,7 @@ export function Podcast({ headless = false }: { headless?: boolean } = {}) {
                 </span>
               </div>
 
-              <div className="p-6">
+              <div className="pt-5">
                 <div className="flex items-center gap-3 font-mono text-[11px] text-fg-subtle">
                   <span className="text-brand">{episode.n}</span>
                   <span>{t(episode.date)}</span>

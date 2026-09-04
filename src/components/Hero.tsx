@@ -1,8 +1,9 @@
-import { ArrowDown, CalendarCheck } from 'lucide-react'
+import { ArrowRight, CalendarCheck } from 'lucide-react'
 import { hero, site } from '../content/site'
 import { useLang } from '../lib/lang'
 import { AtomMark } from './ui/AtomMark'
 import { Button } from './ui/Button'
+import Magnet from './reactbits/Magnet'
 import Aurora from './reactbits/Aurora'
 import BlurText from './reactbits/BlurText'
 import GradientText from './reactbits/GradientText'
@@ -35,7 +36,7 @@ export function Hero() {
         </h1>
         <div
           aria-hidden="true"
-          className="mt-6 max-w-4xl font-display text-[clamp(2.6rem,7vw,4.75rem)] font-semibold leading-[1.08] tracking-[-0.02em]"
+          className="mt-6 max-w-3xl font-display text-[clamp(2.1rem,5.2vw,3.6rem)] font-medium leading-[1.12] tracking-[-0.02em]"
         >
           <BlurText
             key={`top-${lang}`}
@@ -54,16 +55,24 @@ export function Hero() {
           </GradientText>
         </div>
 
-        <p className="mt-7 max-w-2xl text-base leading-relaxed text-fg-muted sm:text-lg">{t(hero.subtitle)}</p>
+        <p className="mt-6 max-w-xl text-[15px] leading-relaxed text-fg-muted">{t(hero.subtitle)}</p>
 
-        <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row">
-          <Button href={site.calendly} target="_blank" rel="noopener noreferrer" className="px-6 py-3 text-[15px]">
-            <CalendarCheck className="h-4 w-4" />
-            {t(hero.primaryCta)}
-          </Button>
-          <Button variant="secondary" href="#services" className="px-6 py-3 text-[15px]">
+        <div className="mt-12 flex flex-col items-center gap-4">
+          <Magnet padding={70} magnetStrength={6}>
+            <Button
+              href={site.calendly}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-9 py-4 text-base sm:px-11 sm:py-[1.15rem] sm:text-[17px]"
+            >
+              <CalendarCheck className="h-5 w-5" />
+              {t(hero.primaryCta)}
+            </Button>
+          </Magnet>
+
+          <Button variant="ghost" href="#/cases" className="gap-1.5 px-4 py-2 text-sm">
             {t(hero.secondaryCta)}
-            <ArrowDown className="h-4 w-4" />
+            <ArrowRight className="h-3.5 w-3.5" />
           </Button>
         </div>
       </div>

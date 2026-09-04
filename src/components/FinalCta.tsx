@@ -20,8 +20,8 @@ export function FinalCta() {
 
       <div className="mx-auto w-full max-w-3xl px-6 py-28 text-center sm:py-36">
         <Reveal>
-          <h2 className="text-3xl font-semibold sm:text-[2.75rem] sm:leading-[1.1]">{t(finalCta.title)}</h2>
-          <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-fg-muted sm:text-lg">
+          <h2 className="font-display text-2xl font-medium sm:text-[2.1rem] sm:leading-[1.15]">{t(finalCta.title)}</h2>
+          <p className="mx-auto mt-5 max-w-lg text-[15px] leading-relaxed text-fg-muted">
             {t(finalCta.text)}
           </p>
 
