@@ -60,21 +60,21 @@ export const clients = {
     es: 'Equipos de toda América que ya confían en nosotros',
   } satisfies T,
   /**
-   * Wordmarks, not logo files — the real PNGs live at /clients/*.png on
-   * atomlabsai.com. Drop them into public/clients/ to switch to images.
+   * `dark` marks logos whose artwork is too dark to read on the charcoal
+   * ground; the strip inverts those. Measured by scripts/build-clients.mjs.
    */
-  names: [
-    'Magnolias',
-    'Pixel Art',
-    'Lois & Bogao',
-    'Unlimited Insurance',
-    'Mercado Williman',
-    'Mercado del Prado',
-    'San Fernando',
-    'Sol',
-    'Juma',
-    'Mtur',
-    'AN Inmuebles',
+  logos: [
+    { slug: 'magnolias', name: 'Magnolias', dark: false },
+    { slug: 'pixel-art', name: 'Pixel Art', dark: false },
+    { slug: 'lois-bogao', name: 'Lois & Bogao', dark: true },
+    { slug: 'unlimited-insurance', name: 'Unlimited Insurance', dark: false },
+    { slug: 'mercado-williman', name: 'Mercado Williman', dark: true },
+    { slug: 'mercado-del-prado', name: 'Mercado del Prado', dark: false },
+    { slug: 'san-fernando', name: 'San Fernando', dark: false },
+    { slug: 'sol', name: 'Sol', dark: true },
+    { slug: 'juma', name: 'Juma', dark: false },
+    { slug: 'mtur', name: 'Mtur', dark: false },
+    { slug: 'an-inmuebles', name: 'AN Inmuebles', dark: false },
   ],
 }
 
