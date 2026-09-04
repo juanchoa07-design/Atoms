@@ -9,7 +9,7 @@ export const site = {
   name: 'AtomLabs',
   tagline: {
     en: 'AI software factory for LATAM',
-    es: 'Fábrica de software con IA para LATAM',
+    es: 'Software factory de IA para LATAM',
   } satisfies T,
   calendly: 'https://calendly.com/contact-atomlabsai/discovery-call',
   social: {
@@ -28,21 +28,21 @@ export const nav: { href: string; label: T }[] = [
 ]
 
 export const hero = {
-  eyebrow: { en: 'AI software factory · LATAM', es: 'Fábrica de software con IA · LATAM' } satisfies T,
+  eyebrow: { en: 'AI software factory · LATAM', es: 'Software factory de IA · LATAM' } satisfies T,
   titleTop: { en: 'We build AI systems', es: 'Construimos sistemas de IA' } satisfies T,
-  titleAccent: { en: 'that run your business.', es: 'que hacen andar tu negocio.' } satisfies T,
+  titleAccent: { en: 'that run your business.', es: 'que operan tu negocio.' } satisfies T,
   subtitle: {
     en: 'Custom automation, conversational agents and AI software — designed, built and operated for mid-market and enterprise teams.',
-    es: 'Automatización a medida, agentes conversacionales y software con IA — diseñados, construidos y operados para equipos medianos y grandes.',
+    es: 'Automatización a medida, agentes conversacionales y software con IA. Diseñamos, construimos y operamos para empresas mid-market y enterprise.',
   } satisfies T,
-  primaryCta: { en: 'Schedule a call', es: 'Agendar una llamada' } satisfies T,
+  primaryCta: { en: 'Schedule a call', es: 'Agendar llamada' } satisfies T,
   secondaryCta: { en: 'See what we build', es: 'Ver qué construimos' } satisfies T,
 }
 
 export const clients = {
   title: {
     en: 'Trusted by teams across the Americas',
-    es: 'Equipos de toda América confían en nosotros',
+    es: 'Equipos de toda América que ya confían en nosotros',
   } satisfies T,
   /**
    * Wordmarks, not logo files — the real PNGs live at /clients/*.png on
@@ -94,7 +94,7 @@ export const tracks: {
       es: 'Agentes listos para desplegar y software a medida — diseñados, construidos y operados de punta a punta.',
     },
     teaser: [
-      { en: 'Talk to your data', es: 'Hablá con tus datos' },
+      { en: 'Talk to your data', es: 'Hablale a tus datos' },
       { en: 'Conversational agents', es: 'Agentes conversacionales' },
       { en: 'Voice AI', es: 'Voice AI' },
       { en: 'End-to-end automations', es: 'Automatizaciones end-to-end' },
@@ -141,7 +141,7 @@ export const tracks: {
     title: { en: 'The Atom Voice', es: 'The Atom Voice' },
     blurb: {
       en: 'Entrepreneurs, experts and operators on AI, product and what it really takes to build in LATAM.',
-      es: 'Emprendedores, expertos y operadores hablando de IA, producto y lo que de verdad cuesta construir en LATAM.',
+      es: 'Emprendedores, expertos y operadores hablan de IA, producto y lo que de verdad cuesta construir en LATAM.',
     },
     teaser: [
       { en: 'New episodes on YouTube', es: 'Episodios nuevos en YouTube' },
@@ -156,24 +156,24 @@ export const processSteps: { n: string; when: T; title: T; desc: T; bullets: T[]
   {
     n: '01',
     when: { en: 'Week 1', es: 'Semana 1' },
-    title: { en: 'Onboarding & Discovery', es: 'Onboarding y descubrimiento' },
+    title: { en: 'Onboarding & Discovery', es: 'Onboarding y Discovery' },
     desc: {
       en: "We map your process, stack and goals, agree on scope and success metrics, and get access to the systems we'll integrate.",
-      es: 'Mapeamos tu proceso, tu stack y tus objetivos, acordamos alcance y métricas de éxito, y conseguimos acceso a los sistemas a integrar.',
+      es: 'Mapeamos tu proceso, stack y objetivos, acordamos el alcance y las métricas de éxito, y obtenemos acceso a los sistemas a integrar.',
     },
     bullets: [
-      { en: 'Kickoff and stakeholder alignment', es: 'Kickoff y alineación con los responsables' },
+      { en: 'Kickoff and stakeholder alignment', es: 'Kickoff y alineación con stakeholders' },
       { en: 'Process and systems audit', es: 'Auditoría de procesos y sistemas' },
-      { en: 'Scope, timeline and success metrics', es: 'Alcance, cronograma y métricas de éxito' },
+      { en: 'Scope, timeline and success metrics', es: 'Alcance, plazos y métricas de éxito' },
     ],
   },
   {
     n: '02',
     when: { en: 'Week 1–2', es: 'Semana 1–2' },
-    title: { en: 'Architecture & Design', es: 'Arquitectura y diseño' },
+    title: { en: 'Architecture & Design', es: 'Arquitectura y Diseño' },
     desc: {
       en: 'We design the system end to end: integrations, data flow, fallbacks and the human-handoff points.',
-      es: 'Diseñamos el sistema de punta a punta: integraciones, flujo de datos, fallbacks y los puntos de derivación a humanos.',
+      es: 'Diseñamos el sistema de punta a punta: integraciones, flujo de datos, fallbacks y los puntos de derivación a humano.',
     },
     bullets: [
       { en: 'Solution architecture and data model', es: 'Arquitectura de la solución y modelo de datos' },
@@ -184,15 +184,15 @@ export const processSteps: { n: string; when: T; title: T; desc: T; bullets: T[]
   {
     n: '03',
     when: { en: 'Weeks 2–6', es: 'Semanas 2–6' },
-    title: { en: 'Build & Integrate', es: 'Construcción e integración' },
+    title: { en: 'Build & Integrate', es: 'Desarrollo e Integración' },
     desc: {
       en: 'We implement in code, integrate to your stack and test against real data — with weekly demos so you see progress.',
-      es: 'Implementamos en código, integramos a tu stack y probamos contra datos reales — con demos semanales para que veas el avance.',
+      es: 'Implementamos en código, integramos a tu stack y probamos con datos reales — con demos semanales para que veas el avance.',
     },
     bullets: [
-      { en: 'Iterative build with weekly demos', es: 'Construcción iterativa con demos semanales' },
+      { en: 'Iterative build with weekly demos', es: 'Desarrollo iterativo con demos semanales' },
       { en: 'Native integration to your tools', es: 'Integración nativa con tus herramientas' },
-      { en: 'Testing against real data', es: 'Pruebas contra datos reales' },
+      { en: 'Testing against real data', es: 'Pruebas con datos reales' },
     ],
   },
   {
@@ -201,25 +201,25 @@ export const processSteps: { n: string; when: T; title: T; desc: T; bullets: T[]
     title: { en: 'Launch', es: 'Lanzamiento' },
     desc: {
       en: 'We deploy to production, train your team and hand over documentation — live in weeks, not quarters.',
-      es: 'Desplegamos a producción, entrenamos a tu equipo y entregamos la documentación — en semanas, no en trimestres.',
+      es: 'Desplegamos a producción, capacitamos a tu equipo y entregamos la documentación — en vivo en semanas, no en trimestres.',
     },
     bullets: [
-      { en: 'Production deployment', es: 'Despliegue a producción' },
-      { en: 'Team training and handover docs', es: 'Capacitación del equipo y documentación de entrega' },
+      { en: 'Production deployment', es: 'Despliegue en producción' },
+      { en: 'Team training and handover docs', es: 'Capacitación y documentación de entrega' },
       { en: 'Monitoring and alerts from day one', es: 'Monitoreo y alertas desde el día uno' },
     ],
   },
   {
     n: '05',
     when: { en: 'Ongoing', es: 'Continuo' },
-    title: { en: 'Operate & Evolve', es: 'Operación y evolución' },
+    title: { en: 'Operate & Evolve', es: 'Operación y Evolución' },
     desc: {
       en: 'Post-production we run, monitor and iterate alongside your team — with SLA, support and continuous improvements.',
-      es: 'Después de producción operamos, monitoreamos e iteramos junto a tu equipo — con SLA, soporte y mejoras continuas.',
+      es: 'En post-producción operamos, monitoreamos e iteramos junto a tu equipo — con SLA, soporte y mejoras continuas.',
     },
     bullets: [
       { en: 'Monitoring, SLA and support', es: 'Monitoreo, SLA y soporte' },
-      { en: 'Continuous iteration and new features', es: 'Iteración continua y nuevas funcionalidades' },
+      { en: 'Continuous iteration and new features', es: 'Iteración continua y nuevas features' },
       { en: 'Performance and cost reporting', es: 'Reportes de performance y costos' },
     ],
   },
@@ -232,7 +232,7 @@ export const integrations = {
   } satisfies T,
   blurb: {
     en: 'We build on your stack and connect to the systems your team runs every day — CRMs, databases, messaging and telephony.',
-    es: 'Construimos sobre tu stack y conectamos con los sistemas que tu equipo usa todos los días — CRMs, bases de datos, mensajería y telefonía.',
+    es: 'Construimos sobre tu stack y nos conectamos a los sistemas que tu equipo usa todos los días — CRMs, bases de datos, mensajería y telefonía.',
   } satisfies T,
   tools: [
     'WhatsApp Business API',
@@ -262,19 +262,19 @@ export const metrics: { prefix?: string; to: number; suffix: string; label: T; n
   {
     to: 12,
     suffix: '',
-    label: { en: 'systems live in production', es: 'sistemas vivos en producción' },
+    label: { en: 'systems live in production', es: 'Sistemas en producción' },
     needsData: true,
   },
-  { to: 24, suffix: '/7', label: { en: 'monitored operation', es: 'operación monitoreada' } },
+  { to: 24, suffix: '/7', label: { en: 'monitored operation', es: 'Operación monitoreada' } },
   {
     to: 100,
     suffix: '%',
-    label: { en: 'production deployments, not pilots', es: 'despliegues productivos, no pilotos' },
+    label: { en: 'production deployments, not pilots', es: 'Despliegues en producción, no pilotos' },
   },
   {
     to: 24,
     suffix: 'h',
-    label: { en: 'average response to new projects', es: 'respuesta promedio a proyectos nuevos' },
+    label: { en: 'average response to new projects', es: 'Respuesta promedio a nuevos proyectos' },
     needsData: true,
   },
 ]
@@ -299,7 +299,7 @@ export const team: Member[] = [
     role: { en: 'Co-Founder & CEO', es: 'Co-Founder y CEO' },
     bio: {
       en: 'Your first call. Turns business problems into a concrete roadmap.',
-      es: 'Tu primera llamada. Convierte problemas de negocio en un roadmap concreto.',
+      es: 'Tu primer contacto. Traduce cada problema de negocio en un roadmap concreto.',
     },
     linkedin: 'https://www.linkedin.com/in/mat%C3%ADas-jord%C3%A1-b663642a3/',
     photo: 'images/team-matias.webp',
@@ -309,7 +309,7 @@ export const team: Member[] = [
     role: { en: 'Co-Founder & CTO', es: 'Co-Founder y CTO' },
     bio: {
       en: 'Owns the architecture and leads the engineering behind every agent in production.',
-      es: 'Dueño de la arquitectura y responsable de la ingeniería detrás de cada agente en producción.',
+      es: 'Define la arquitectura y lidera la ingeniería detrás de cada agente en producción.',
     },
     linkedin: 'https://www.linkedin.com/in/ignacio-miranda-1b2336380/',
     photo: 'images/team-ignacio.webp',
@@ -319,7 +319,7 @@ export const team: Member[] = [
     role: { en: 'Senior Software & AI Developer', es: 'Senior Software & AI Developer' },
     bio: {
       en: 'Builds the agents, integrations and software that ship to production.',
-      es: 'Construye los agentes, integraciones y software que llegan a producción.',
+      es: 'Construye los agentes, las integraciones y el software que termina en producción.',
     },
     linkedin: 'https://www.linkedin.com/in/federico-dominguez-mas-83a509386/',
   },
@@ -328,7 +328,7 @@ export const team: Member[] = [
     role: { en: 'Senior Software & AI Developer', es: 'Senior Software & AI Developer' },
     bio: {
       en: 'Develops end-to-end automations and integrations, from idea to deploy.',
-      es: 'Desarrolla automatizaciones e integraciones de punta a punta, de la idea al deploy.',
+      es: 'Desarrolla automatizaciones e integraciones end-to-end, de la idea al deploy.',
     },
     linkedin: 'https://www.linkedin.com/in/ebruckmann/',
   },
@@ -337,7 +337,7 @@ export const team: Member[] = [
     role: { en: 'Creative Director', es: 'Director Creativo' },
     bio: {
       en: 'Makes sure every product looks and feels up to your brand.',
-      es: 'Se asegura de que cada producto esté a la altura de tu marca.',
+      es: 'Cuida que cada producto se vea y se sienta a la altura de tu marca.',
     },
     linkedin: 'https://www.linkedin.com/in/valent%C3%ADn-mcauliffe-7b3840299/',
   },
@@ -346,7 +346,7 @@ export const team: Member[] = [
     role: { en: 'CFO', es: 'CFO' },
     bio: {
       en: 'Clear numbers: budgets, contracts and pricing with no surprises.',
-      es: 'Números claros: presupuestos, contratos y precios sin sorpresas.',
+      es: 'Números claros: presupuestos, contratos y pricing sin sorpresas.',
     },
     linkedin: 'https://www.linkedin.com/in/martinvazquezm/',
   },
@@ -354,7 +354,7 @@ export const team: Member[] = [
 
 export const teamOutro: T = {
   en: 'No account managers, no middlemen — you talk directly to the people who build your project.',
-  es: 'Sin account managers ni intermediarios — hablás directo con quienes construyen tu proyecto.',
+  es: 'Sin gerentes de cuenta ni intermediarios: hablás directo con quienes construyen tu proyecto.',
 }
 
 export const podcast = {
@@ -365,7 +365,7 @@ export const podcast = {
   } satisfies T,
   blurb: {
     en: 'Entrepreneurs, experts and operators on AI, product and what it really takes to build in LATAM.',
-    es: 'Emprendedores, expertos y operadores hablando de IA, producto y lo que de verdad cuesta construir en LATAM.',
+    es: 'Emprendedores, expertos y operadores hablan de IA, producto y lo que de verdad cuesta construir en LATAM.',
   } satisfies T,
   cta: { en: 'Watch on YouTube', es: 'Ver en YouTube' } satisfies T,
   episodes: [
@@ -407,16 +407,16 @@ export const finalCta = {
 
 export const ui = {
   servicesEyebrow: { en: 'Service', es: 'Servicios' } satisfies T,
-  servicesTitle: { en: 'What we build', es: 'Qué construimos' } satisfies T,
+  servicesTitle: { en: 'What we build', es: 'Lo que hacemos' } satisfies T,
   servicesSubtitle: {
     en: 'Two ways to work with us: ready-to-deploy AI agents, and tailor-made systems built around your operation.',
-    es: 'Dos formas de trabajar con nosotros: agentes de IA listos para desplegar, y sistemas a medida construidos alrededor de tu operación.',
+    es: 'Dos formas de trabajar con nosotros: agentes de IA listos para operar y sistemas a medida construidos sobre tu operación.',
   } satisfies T,
   processEyebrow: { en: 'How we work', es: 'Cómo trabajamos' } satisfies T,
   processTitle: { en: 'One team, end to end', es: 'Un solo equipo, de punta a punta' } satisfies T,
   processSubtitle: {
     en: 'From the first call to running in production — we design, build and operate the whole system. No handoffs, no middlemen.',
-    es: 'Desde la primera llamada hasta la operación en producción — diseñamos, construimos y operamos todo el sistema. Sin traspasos ni intermediarios.',
+    es: 'Desde la primera llamada hasta operar en producción: diseñamos, construimos y operamos todo el sistema. Sin traspasos, sin intermediarios.',
   } satisfies T,
   integrationsEyebrow: { en: 'Integrations', es: 'Integraciones' } satisfies T,
   metricsEyebrow: { en: 'By the numbers', es: 'En números' } satisfies T,

@@ -1,22 +1,22 @@
 @import 'tailwindcss';
 
 @theme {
-  /* Surfaces */
-  --color-ink: #08090b;
-  --color-ink-raised: #0e1013;
-  --color-ink-hover: #14171b;
-  --color-line: #ffffff14;
-  --color-line-strong: #ffffff26;
+  /* Surfaces — sampled from the master logo so the artwork sits flush */
+  --color-ink: #2b2a2a;
+  --color-ink-raised: #333131;
+  --color-ink-hover: #3b3838;
+  --color-line: #ffffff1a;
+  --color-line-strong: #ffffff33;
 
-  /* Type */
-  --color-fg: #f4f5f6;
-  --color-fg-muted: #8b9099;
-  --color-fg-subtle: #787e88;
+  /* Type — the logo's warm cream, not a cold white */
+  --color-fg: #fbeae5;
+  --color-fg-muted: #b3aca9;
+  --color-fg-subtle: #9c9593;
 
-  /* Brand */
-  --color-brand: #2d9cdb;
-  --color-brand-deep: #007bba;
-  --color-brand-soft: #2d9cdb1f;
+  /* Brand — the logo's soft periwinkle */
+  --color-brand: #87abdb;
+  --color-brand-deep: #6d93c8;
+  --color-brand-soft: #87abdb26;
 
   --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
   --font-display: 'Space Grotesk', 'Inter', ui-sans-serif, system-ui, sans-serif;
@@ -47,7 +47,7 @@
 
   ::selection {
     background: var(--color-brand);
-    color: #04121c;
+    color: #1b2432;
   }
 
   :focus-visible {

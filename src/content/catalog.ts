@@ -13,7 +13,7 @@ import type { Offering, T } from './site'
 /** Everything shown on the Services page, reached from the home page chooser. */
 export const servicesPage = {
   eyebrow: { en: 'Services', es: 'Servicios' } satisfies T,
-  title: { en: 'What we build', es: 'Qué construimos' } satisfies T,
+  title: { en: 'What we build', es: 'Lo que hacemos' } satisfies T,
   intro: {
     en: 'Ready-to-deploy AI agents and tailor-made systems, designed around how your business actually runs. We build, integrate and operate all of it.',
     es: 'Agentes de IA listos para desplegar y sistemas a medida, diseñados según cómo funciona tu negocio de verdad. Los construimos, integramos y operamos nosotros.',
@@ -31,19 +31,19 @@ export const servicesPage = {
         {
           n: '01',
           icon: Database,
-          title: { en: 'Talk to your data', es: 'Hablá con tus datos' },
+          title: { en: 'Talk to your data', es: 'Hablale a tus datos' },
           desc: {
             en: 'Ask your databases and documents in plain language.',
-            es: 'Preguntale a tus bases de datos y documentos en lenguaje natural.',
+            es: 'Consultá tus bases y documentos en lenguaje natural.',
           },
           bullets: [
             {
               en: 'RAG over internal docs, contracts and SOPs',
-              es: 'RAG sobre documentos internos, contratos y procedimientos',
+              es: 'RAG sobre docs internos, contratos y manuales',
             },
             {
               en: 'Text-to-SQL agents on production databases',
-              es: 'Agentes text-to-SQL sobre bases de datos productivas',
+              es: 'Agentes text-to-SQL sobre bases productivas',
             },
             {
               en: 'Conversational access from Slack, Telegram or web',
@@ -57,7 +57,7 @@ export const servicesPage = {
           title: { en: 'Conversational agents', es: 'Agentes conversacionales' },
           desc: {
             en: 'Lead qualification, support and sales on the channels your customers already use.',
-            es: 'Calificación de leads, soporte y ventas en los canales que tus clientes ya usan.',
+            es: 'Calificación, soporte y ventas en los canales que tus clientes ya usan.',
           },
           bullets: [
             { en: 'WhatsApp, Instagram, Telegram and web chat', es: 'WhatsApp, Instagram, Telegram y chat web' },
@@ -87,7 +87,7 @@ export const servicesPage = {
       title: { en: 'Systems built to measure', es: 'Sistemas hechos a medida' } satisfies T,
       blurb: {
         en: 'End-to-end automations and custom software, designed around how your business actually runs.',
-        es: 'Automatizaciones de punta a punta y software a medida, diseñados según cómo funciona tu negocio de verdad.',
+        es: 'Automatizaciones end-to-end y software a medida, diseñados sobre cómo funciona realmente tu negocio.',
       } satisfies T,
       items: [
         {
@@ -96,14 +96,14 @@ export const servicesPage = {
           title: { en: 'End-to-end automations', es: 'Automatizaciones end-to-end' },
           desc: {
             en: 'Wire your stack and your work together.',
-            es: 'Conectamos tu stack y tu trabajo en un solo flujo.',
+            es: 'Integramos tu stack y tus procesos.',
           },
           bullets: [
             {
               en: 'Integrations across Marketing, ERP, CRM, e-commerce',
-              es: 'Integraciones con Marketing, ERP, CRM y e-commerce',
+              es: 'Integraciones entre Marketing, ERP, CRM, e-commerce',
             },
-            { en: 'Automated reporting and dashboards', es: 'Reportes y dashboards automáticos' },
+            { en: 'Automated reporting and dashboards', es: 'Reporting automatizado y dashboards' },
             { en: 'Monitoring, alerting and SLA from day one', es: 'Monitoreo, alertas y SLA desde el día uno' },
           ],
         },
@@ -113,7 +113,7 @@ export const servicesPage = {
           title: { en: 'Custom AI software', es: 'Software con IA a medida' },
           desc: {
             en: 'Internal platforms with AI built in.',
-            es: 'Plataformas internas con IA integrada de base.',
+            es: 'Plataformas internas con IA embebida.',
           },
           bullets: [
             { en: 'Built on your data model, not a template', es: 'Sobre tu modelo de datos, no una plantilla' },

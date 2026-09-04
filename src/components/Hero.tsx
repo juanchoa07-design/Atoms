@@ -14,8 +14,8 @@ export function Hero() {
     <section id="inicio" className="relative isolate overflow-hidden">
       {/* Backdrop: aurora band, dot grid and an oversized atom outline */}
       <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute inset-x-0 top-0 h-[70vh] opacity-60 [mask-image:linear-gradient(to_bottom,#000_10%,transparent_95%)]">
-          <Aurora colorStops={['#007BBA', '#2D9CDB', '#0B4F73']} amplitude={0.9} blend={0.6} speed={0.6} />
+        <div className="absolute inset-x-0 top-0 h-[55vh] opacity-[0.28] [mask-image:linear-gradient(to_bottom,#000_5%,transparent_85%)]">
+          <Aurora colorStops={['#6D93C8', '#87ABDB', '#3E5675']} amplitude={0.8} blend={0.7} speed={0.45} />
         </div>
         <div className="grid-backdrop absolute inset-0" />
         <AtomMark
@@ -47,7 +47,7 @@ export function Hero() {
           />
           <GradientText
             key={`accent-${lang}`}
-            colors={['#007BBA', '#5cbdf0', '#007BBA']}
+            colors={['#6D93C8', '#a8c6ea', '#6D93C8']}
             animationSpeed={7}
           >
             {t(hero.titleAccent)}

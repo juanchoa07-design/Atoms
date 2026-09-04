@@ -1,7 +1,6 @@
 import { Instagram, Linkedin, Youtube } from 'lucide-react'
 import { nav, site, ui } from '../content/site'
 import { useLang } from '../lib/lang'
-import { AtomMark } from './ui/AtomMark'
 
 const socials = [
   { href: site.social.linkedin, label: 'LinkedIn', Icon: Linkedin },
@@ -17,9 +16,14 @@ export function Footer() {
       <div className="mx-auto w-full max-w-6xl px-6 py-16">
         <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr]">
           <div>
-            <a href="#inicio" className="flex items-center gap-2.5" aria-label={site.name}>
-              <AtomMark className="h-6 w-6 text-brand" />
-              <span className="text-[15px] font-display font-semibold tracking-tight">{site.name}</span>
+            <a href="#/" className="flex items-center" aria-label={site.name}>
+              <img
+                src={`${import.meta.env.BASE_URL}brand/logo.png`}
+                alt={site.name}
+                width={258}
+                height={160}
+                className="h-10 w-auto"
+              />
             </a>
             <p className="mt-4 max-w-xs text-sm text-fg-muted">{t(site.tagline)}</p>
           </div>

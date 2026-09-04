@@ -3,7 +3,6 @@ import { Menu, X } from 'lucide-react'
 import { nav, site, hero } from '../content/site'
 import { useLang } from '../lib/lang'
 import { useScrolled } from '../lib/useScrolled'
-import { AtomMark } from './ui/AtomMark'
 import { Button } from './ui/Button'
 
 function LangToggle() {
@@ -47,9 +46,14 @@ export function Nav() {
       }`}
     >
       <nav className="mx-auto flex h-[72px] w-full max-w-6xl items-center justify-between px-6">
-        <a href="#inicio" className="flex items-center gap-2.5 text-fg" aria-label={site.name}>
-          <AtomMark className="h-6 w-6 text-brand" />
-          <span className="text-[15px] font-display font-semibold tracking-tight">{site.name}</span>
+        <a href="#/" className="flex items-center" aria-label={site.name}>
+          <img
+            src={`${import.meta.env.BASE_URL}brand/logo.png`}
+            alt={site.name}
+            width={258}
+            height={160}
+            className="h-11 w-auto"
+          />
         </a>
 
         <ul className="hidden items-center gap-8 md:flex">
