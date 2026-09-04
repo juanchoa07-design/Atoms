@@ -1,9 +1,17 @@
+import type { CSSProperties } from 'react'
 import { Linkedin } from 'lucide-react'
 import { team, teamOutro, ui } from '../content/site'
 import type { Member } from '../content/site'
 import { useLang } from '../lib/lang'
 import { Section } from './ui/Section'
 import { Reveal } from './ui/Reveal'
+
+const ACCENTS = [
+  'var(--color-accent-sage)',
+  'var(--color-accent-blue)',
+  'var(--color-accent-peach)',
+  'var(--color-accent-lilac)',
+]
 
 function initials(name: string) {
   return name
@@ -26,55 +34,54 @@ function Portrait({ member }: { member: Member }) {
   }
   return (
     <div className="flex h-full w-full items-center justify-center">
-      <span className="font-display text-base font-medium text-fg-subtle transition-colors duration-500 group-hover:text-brand">
+      <span className="accent-text font-display text-lg font-medium opacity-70 transition-opacity duration-500 group-hover:opacity-100">
         {initials(member.name)}
       </span>
     </div>
   )
 }
 
-/** Rows, not tiles: the team reads as a list of people. */
 export function Team({ headless = false }: { headless?: boolean } = {}) {
   const { t } = useLang()
 
   const body = (
     <>
-      <ul>
+      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {team.map((member, i) => (
-          <Reveal
-            as="li"
-            key={member.name}
-            delay={i * 50}
-            className="group relative flex items-center gap-5 border-t border-line py-6 transition-colors duration-300 first:border-t-0 hover:bg-white/[0.015] sm:gap-8"
-          >
-            <span
-              aria-hidden="true"
-              className="absolute left-0 top-0 h-px w-0 bg-brand transition-all duration-500 group-hover:w-full"
-            />
-            <div className="h-14 w-14 shrink-0 overflow-hidden rounded-full border border-line bg-white/[0.03] transition-transform duration-500 group-hover:scale-105">
-              <Portrait member={member} />
-            </div>
-
-            <div className="min-w-0 flex-1 sm:grid sm:grid-cols-[minmax(0,14rem)_minmax(0,1fr)] sm:items-baseline sm:gap-8">
-              <div>
-                <h3 className="font-display text-base font-medium">{member.name}</h3>
-                <p className="mt-0.5 font-mono text-[11px] uppercase tracking-wider text-brand">{t(member.role)}</p>
-              </div>
-              <p className="mt-2 text-sm leading-relaxed text-fg-muted sm:mt-0">{t(member.bio)}</p>
-            </div>
-
-            <a
-              href={member.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`LinkedIn — ${member.name}`}
-              className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-line text-fg-subtle transition hover:border-brand hover:text-brand"
+          <Reveal key={member.name} delay={i * 60}>
+            <article
+              className="accent-scope group h-full"
+              style={{ '--accent': ACCENTS[i % ACCENTS.length] } as CSSProperties}
             >
-              <Linkedin className="h-3.5 w-3.5" strokeWidth={1.7} />
-            </a>
+              <div className="accent-card flex h-full flex-col rounded-card p-6">
+                <div className="relative flex items-start gap-4">
+                  <div className="h-14 w-14 shrink-0 overflow-hidden rounded-full border border-line bg-white/[0.03] transition-transform duration-500 group-hover:scale-105">
+                    <Portrait member={member} />
+                  </div>
+                  <div className="min-w-0">
+                    <h3 className="font-display text-base font-medium">{member.name}</h3>
+                    <p className="accent-text mt-1 font-mono text-[11px] uppercase tracking-wider">
+                      {t(member.role)}
+                    </p>
+                  </div>
+                </div>
+
+                <p className="relative mt-5 flex-1 text-sm leading-relaxed text-fg-muted">{t(member.bio)}</p>
+
+                <a
+                  href={member.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="accent-chip relative mt-6 inline-flex w-fit items-center gap-2 rounded-full border px-4 py-2 text-[13px] font-medium transition-all duration-300 hover:gap-3"
+                >
+                  <Linkedin className="h-3.5 w-3.5" strokeWidth={1.8} />
+                  LinkedIn
+                </a>
+              </div>
+            </article>
           </Reveal>
         ))}
-      </ul>
+      </div>
 
       <Reveal className="mt-12 border-t border-line pt-10">
         <p className="max-w-2xl text-base leading-relaxed text-fg-muted">{t(teamOutro)}</p>
@@ -91,7 +98,14 @@ export function Team({ headless = false }: { headless?: boolean } = {}) {
   }
 
   return (
-    <Section id="team" index="04" eyebrow={t(ui.teamEyebrow)} title={t(ui.teamTitle)} subtitle={t(ui.teamSubtitle)}>
+    <Section
+      id="team"
+      index="04"
+      accent="var(--color-accent-sage)"
+      eyebrow={t(ui.teamEyebrow)}
+      title={t(ui.teamTitle)}
+      subtitle={t(ui.teamSubtitle)}
+    >
       {body}
     </Section>
   )

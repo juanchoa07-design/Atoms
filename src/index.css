@@ -15,6 +15,13 @@
   --color-fg-muted: #b3aca9;
   --color-fg-subtle: #9c9593;
 
+  /* Section accents — all desaturated, same tonal family as the logo so
+     they add colour without turning the page into a carnival. */
+  --color-accent-blue: #87abdb;
+  --color-accent-peach: #e0ab93;
+  --color-accent-sage: #90c0a6;
+  --color-accent-lilac: #ab9bd6;
+
   /* Brand — the logo's soft periwinkle */
   --color-brand: #87abdb;
   --color-brand-deep: #6d93c8;
@@ -160,6 +167,72 @@
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+  }
+
+  /* Anything inside an accent scope reads --accent; defaults to the brand. */
+  .accent-scope {
+    --accent: var(--color-brand);
+  }
+
+  .accent-chip {
+    color: var(--accent);
+    background: color-mix(in oklab, var(--accent) 14%, transparent);
+    border-color: color-mix(in oklab, var(--accent) 30%, transparent);
+  }
+
+  .accent-text {
+    color: var(--accent);
+  }
+
+  .accent-rule {
+    background: color-mix(in oklab, var(--accent) 60%, transparent);
+  }
+
+  /* Accent-tinted card: lit edge plus a bloom that grows on hover. */
+  .accent-card {
+    position: relative;
+    background:
+      radial-gradient(120% 80% at 0% 0%, color-mix(in oklab, var(--accent) 10%, transparent) 0%, transparent 58%),
+      linear-gradient(160deg, var(--color-ink-raised) 0%, var(--color-ink) 72%);
+    transition: box-shadow 0.45s ease, transform 0.45s ease;
+  }
+
+  .accent-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(
+      150deg,
+      color-mix(in oklab, var(--accent) 60%, transparent) 0%,
+      var(--color-line) 40%,
+      transparent 72%
+    );
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0.65;
+    transition: opacity 0.45s ease;
+    pointer-events: none;
+  }
+
+  .group:hover .accent-card,
+  .accent-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 22px 50px -30px color-mix(in oklab, var(--accent) 70%, transparent);
+  }
+
+  .group:hover .accent-card::before,
+  .accent-card:hover::before {
+    opacity: 1;
+  }
+
+  /* Soft colour bloom sitting behind a section. */
+  .accent-bloom {
+    background: radial-gradient(closest-side, color-mix(in oklab, var(--accent) 26%, transparent), transparent);
   }
 
   /* Primary CTA: a sheen that sweeps across on hover. */

@@ -10,6 +10,7 @@ export function Integrations() {
     <Section
       id="integrations"
       index="03"
+      accent="var(--color-accent-peach)"
       eyebrow={t(ui.integrationsEyebrow)}
       title={t(integrations.title)}
       subtitle={t(integrations.blurb)}

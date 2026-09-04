@@ -18,6 +18,13 @@ function shouldSkip() {
 }
 
 /**
+ * The orbit as a <path>, not an <ellipse>. WebKit's getTotalLength() returns 0
+ * for <ellipse>, which is what Framer Motion's pathLength animation relies on —
+ * so on iOS the orbits never drew and only the backdrop showed.
+ */
+const ORBIT_PATH = 'M 11 32 A 21 8.5 0 1 0 53 32 A 21 8.5 0 1 0 11 32 Z'
+
+/**
  * Entry animation: the atom draws itself, the wordmark resolves, then the
  * curtain lifts. Plays once per tab session and can be skipped with any
  * click or key press.
@@ -92,14 +99,12 @@ export function Intro({ onDone }: { onDone: () => void }) {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
             {orbits.map((angle, i) => (
-              <motion.ellipse
+              <motion.path
                 key={angle}
-                cx="32"
-                cy="32"
-                rx="21"
-                ry="8.5"
+                d={ORBIT_PATH}
                 stroke="currentColor"
                 strokeWidth={1.6}
+                fill="none"
                 transform={`rotate(${angle} 32 32)`}
                 initial={{ pathLength: 0, opacity: 0 }}
                 animate={{ pathLength: 1, opacity: 0.9 }}
@@ -114,7 +119,7 @@ export function Intro({ onDone }: { onDone: () => void }) {
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ duration: 0.5, delay: 0.9, ease: [0.34, 1.56, 0.64, 1] }}
-              style={{ transformOrigin: '32px 32px' }}
+              style={{ transformBox: 'fill-box', transformOrigin: 'center' }}
             />
           </motion.svg>
 

@@ -10,6 +10,7 @@ export function Process() {
     <Section
       id="process"
       index="02"
+      accent="var(--color-accent-blue)"
       eyebrow={t(ui.processEyebrow)}
       title={t(ui.processTitle)}
       subtitle={t(ui.processSubtitle)}

@@ -11,7 +11,7 @@ export function Faq() {
   const [open, setOpen] = useState<number | null>(0)
 
   return (
-    <Section id="faq" index="05" eyebrow={t(faq.eyebrow)} title={t(faq.title)} subtitle={t(faq.subtitle)}>
+    <Section id="faq" index="05" accent="var(--color-accent-lilac)" eyebrow={t(faq.eyebrow)} title={t(faq.title)} subtitle={t(faq.subtitle)}>
       <ul className="max-w-3xl">
         {faq.items.map((item, i) => {
           const isOpen = open === i

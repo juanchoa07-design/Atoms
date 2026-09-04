@@ -93,6 +93,8 @@ export type Offering = {
 export const tracks: {
   id: 'services' | 'training' | 'about' | 'podcast' | 'cases'
   icon: LucideIcon
+  /** CSS colour driving the card's chip, edge and bloom. */
+  accent: string
   label: T
   title: T
   blurb: T
@@ -102,6 +104,7 @@ export const tracks: {
   {
     id: 'services',
     icon: Workflow,
+    accent: 'var(--color-accent-blue)',
     label: { en: 'Services', es: 'Servicios' },
     title: { en: 'AI agents and systems we build', es: 'Agentes y sistemas de IA que construimos' },
     blurb: {
@@ -120,6 +123,7 @@ export const tracks: {
   {
     id: 'training',
     icon: GraduationCap,
+    accent: 'var(--color-accent-peach)',
     label: { en: 'Training & consulting', es: 'Capacitaciones y consultorías' },
     title: { en: 'Get your team ready for AI', es: 'Preparamos a tu equipo para la IA' },
     blurb: {
@@ -136,6 +140,7 @@ export const tracks: {
   {
     id: 'about',
     icon: Users,
+    accent: 'var(--color-accent-sage)',
     label: { en: 'Meet us', es: 'Conocenos' },
     title: { en: 'The people who build it', es: 'La gente que lo construye' },
     blurb: {
@@ -152,6 +157,7 @@ export const tracks: {
   {
     id: 'podcast',
     icon: PodcastIcon,
+    accent: 'var(--color-accent-lilac)',
     label: { en: 'Podcast', es: 'Podcast' },
     title: { en: 'The Atom Voice', es: 'The Atom Voice' },
     blurb: {

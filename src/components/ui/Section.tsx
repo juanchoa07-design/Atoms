@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react'
+import type { CSSProperties, ReactNode } from 'react'
 import { Reveal } from './Reveal'
 
 type SectionProps = {
@@ -10,17 +10,38 @@ type SectionProps = {
   className?: string
   /** Ghosted numeral in the corner — a visual anchor, not content. */
   index?: string
+  /** CSS colour tinting the eyebrow, numeral and background bloom. */
+  accent?: string
 }
 
-export function Section({ id, eyebrow, title, subtitle, children, className = '', index }: SectionProps) {
+export function Section({
+  id,
+  eyebrow,
+  title,
+  subtitle,
+  children,
+  className = '',
+  index,
+  accent = 'var(--color-brand)',
+}: SectionProps) {
   return (
-    <section id={id} className={`relative overflow-hidden py-16 sm:py-24 lg:py-32 ${className}`}>
+    <section
+      id={id}
+      className={`accent-scope relative overflow-hidden py-16 sm:py-24 lg:py-32 ${className}`}
+      style={{ '--accent': accent } as CSSProperties}
+    >
       <div className="rule-grad absolute inset-x-0 top-0" aria-hidden="true" />
+
+      {/* Colour bloom so the section reads as more than a wall of text */}
+      <div
+        aria-hidden="true"
+        className="accent-bloom pointer-events-none absolute -left-40 top-0 h-[28rem] w-[28rem] opacity-40 blur-[40px]"
+      />
 
       {index && (
         <span
           aria-hidden="true"
-          className="pointer-events-none absolute right-4 top-12 select-none font-display text-[5.5rem] font-medium leading-none text-fg/[0.03] sm:right-12 sm:top-16 sm:text-[10rem]"
+          className="accent-text pointer-events-none absolute right-4 top-12 select-none font-display text-[5.5rem] font-medium leading-none opacity-[0.07] sm:right-12 sm:top-16 sm:text-[10rem]"
         >
           {index}
         </span>
@@ -28,8 +49,8 @@ export function Section({ id, eyebrow, title, subtitle, children, className = ''
 
       <div className="relative mx-auto w-full max-w-6xl px-6">
         <Reveal className="max-w-2xl">
-          <p className="eyebrow flex items-center gap-3">
-            <span className="h-px w-6 bg-brand/60" aria-hidden="true" />
+          <p className="accent-text flex items-center gap-3 font-mono text-[11px] font-medium uppercase tracking-[0.16em]">
+            <span className="accent-rule h-px w-6" aria-hidden="true" />
             {eyebrow}
           </p>
           <h2 className="mt-4 font-display text-2xl font-medium sm:text-[1.9rem]">{title}</h2>
