@@ -4,6 +4,8 @@ import { site } from '../content/site'
 
 const STORAGE_KEY = 'atomlabs.intro-seen'
 const DURATION_MS = 2600
+/** Ignore skip gestures before this, so an early tap doesn't wipe the intro. */
+const SKIP_GRACE_MS = 900
 
 function shouldSkip() {
   if (typeof window === 'undefined') return true
@@ -44,16 +46,24 @@ export function Intro({ onDone }: { onDone: () => void }) {
     if (!visible) return
 
     const timer = window.setTimeout(finish, DURATION_MS)
-    const skip = () => finish()
+    const startedAt = Date.now()
+
+    // `click` rather than `pointerdown`: on a phone the finger going down to
+    // scroll fires pointerdown, which was killing the intro before it played.
+    // A scroll never produces a click, a deliberate tap does.
+    const skip = () => {
+      if (Date.now() - startedAt < SKIP_GRACE_MS) return
+      finish()
+    }
 
     window.addEventListener('keydown', skip)
-    window.addEventListener('pointerdown', skip)
+    window.addEventListener('click', skip)
     document.body.style.overflow = 'hidden'
 
     return () => {
       window.clearTimeout(timer)
       window.removeEventListener('keydown', skip)
-      window.removeEventListener('pointerdown', skip)
+      window.removeEventListener('click', skip)
       document.body.style.overflow = ''
     }
   }, [visible, finish])
