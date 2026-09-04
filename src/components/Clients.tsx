@@ -1,6 +1,7 @@
 import { clients } from '../content/site'
 import { useLang } from '../lib/lang'
 import { Reveal } from './ui/Reveal'
+import { ParticleLattice } from './ui/AtomArt'
 
 /** Client logos in an infinite marquee that pauses when you hover it. */
 export function Clients() {
@@ -10,6 +11,7 @@ export function Clients() {
   return (
     <section className="grad-sink relative py-10 sm:py-14">
       <div className="rule-grad absolute inset-x-0 top-0" aria-hidden="true" />
+      <ParticleLattice className="pointer-events-none absolute right-6 top-2 h-40 w-40 text-brand opacity-[0.1]" />
 
       <Reveal className="mx-auto w-full max-w-6xl px-6">
         <p className="text-center text-[11px] uppercase tracking-[0.16em] text-fg-subtle">{t(clients.title)}</p>

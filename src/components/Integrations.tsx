@@ -2,6 +2,7 @@ import { integrations, ui } from '../content/site'
 import { useLang } from '../lib/lang'
 import { Section } from './ui/Section'
 import { Reveal } from './ui/Reveal'
+import { ParticleLattice } from './ui/AtomArt'
 
 export function Integrations() {
   const { t } = useLang()
@@ -15,8 +16,9 @@ export function Integrations() {
       title={t(integrations.title)}
       subtitle={t(integrations.blurb)}
     >
-      <Reveal>
-        <ul className="flex flex-wrap gap-2.5">
+      <Reveal className="relative">
+        <ParticleLattice className="accent-text pointer-events-none absolute -left-8 -top-10 h-64 w-64 opacity-[0.13]" />
+        <ul className="relative flex flex-wrap gap-2.5">
           {integrations.tools.map((tool, i) => (
             <Reveal
               as="li"

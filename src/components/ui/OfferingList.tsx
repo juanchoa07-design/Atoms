@@ -1,6 +1,7 @@
 import type { Offering } from '../../content/site'
 import { useLang } from '../../lib/lang'
 import { Reveal } from './Reveal'
+import { AtomDot } from './AtomArt'
 
 /**
  * Offerings as hairline-separated rows rather than boxed cards — the page
@@ -42,7 +43,7 @@ export function OfferingList({ items }: { items: Offering[] }) {
               <ul className="mt-5 space-y-2 md:mt-1">
                 {item.bullets.map((bullet) => (
                   <li key={bullet.en} className="flex items-start gap-2.5 text-[13px] text-fg-subtle">
-                    <span className="mt-[7px] h-1 w-1 shrink-0 rounded-full bg-brand/70" aria-hidden="true" />
+                    <AtomDot className="mt-[3px] h-3 w-3 shrink-0 text-brand/70" />
                     {t(bullet)}
                   </li>
                 ))}

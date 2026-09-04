@@ -1,5 +1,6 @@
 import type { CSSProperties, ReactNode } from 'react'
 import { Reveal } from './Reveal'
+import { OrbitRings } from './AtomArt'
 
 type SectionProps = {
   id: string
@@ -32,11 +33,13 @@ export function Section({
     >
       <div className="rule-grad absolute inset-x-0 top-0" aria-hidden="true" />
 
-      {/* Colour bloom so the section reads as more than a wall of text */}
+      {/* Colour bloom plus an orbit figure, so a section is never a bare
+          block of text */}
       <div
         aria-hidden="true"
         className="accent-bloom pointer-events-none absolute -left-40 top-0 h-[28rem] w-[28rem] opacity-40 blur-[40px]"
       />
+      <OrbitRings className="accent-text pointer-events-none absolute -right-24 top-1/2 h-[30rem] w-[30rem] -translate-y-1/2 opacity-[0.07] sm:-right-16" />
 
       {index && (
         <span

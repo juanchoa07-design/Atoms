@@ -3,6 +3,7 @@ import { ArrowRight } from 'lucide-react'
 import { tracks } from '../content/site'
 import { useLang } from '../lib/lang'
 import { Reveal } from './ui/Reveal'
+import { OrbitArc } from './ui/AtomArt'
 
 /**
  * The home page's only menu: four doors, each with its own accent colour and
@@ -26,7 +27,8 @@ export function TrackChooser() {
                   className="accent-scope group block h-full focus:outline-none"
                   style={{ '--accent': track.accent } as CSSProperties}
                 >
-                  <article className="accent-card flex h-full flex-col rounded-card p-6 sm:p-8 lg:p-10">
+                  <article className="accent-card flex h-full flex-col overflow-hidden rounded-card p-6 sm:p-8 lg:p-10">
+                    <OrbitArc className="accent-text pointer-events-none absolute -right-10 -top-10 h-40 w-40 opacity-[0.12] transition-all duration-700 group-hover:-right-6 group-hover:opacity-25" />
                     <div className="relative flex items-center gap-3">
                       <span className="accent-chip inline-flex h-11 w-11 items-center justify-center rounded-xl border transition-transform duration-500 group-hover:scale-110">
                         <Icon className="h-5 w-5" strokeWidth={1.6} aria-hidden="true" />

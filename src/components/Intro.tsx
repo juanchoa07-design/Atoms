@@ -18,11 +18,14 @@ function shouldSkip() {
 }
 
 /**
- * The orbit as a <path>, not an <ellipse>. WebKit's getTotalLength() returns 0
- * for <ellipse>, which is what Framer Motion's pathLength animation relies on —
- * so on iOS the orbits never drew and only the backdrop showed.
+ * The orbit as a <path>, and drawn with explicit dash numbers rather than
+ * Framer Motion's `pathLength`. WebKit only shipped support for the SVG
+ * pathLength attribute in Safari 16.4, so on older Safari the orbits never
+ * drew and all you saw was the backdrop. ORBIT_LENGTH is the ellipse
+ * perimeter (rx 21, ry 8.5) via Ramanujan's approximation.
  */
 const ORBIT_PATH = 'M 11 32 A 21 8.5 0 1 0 53 32 A 21 8.5 0 1 0 11 32 Z'
+const ORBIT_LENGTH = 97
 
 /**
  * Entry animation: the atom draws itself, the wordmark resolves, then the
@@ -106,8 +109,9 @@ export function Intro({ onDone }: { onDone: () => void }) {
                 strokeWidth={1.6}
                 fill="none"
                 transform={`rotate(${angle} 32 32)`}
-                initial={{ pathLength: 0, opacity: 0 }}
-                animate={{ pathLength: 1, opacity: 0.9 }}
+                strokeDasharray={ORBIT_LENGTH}
+                initial={{ strokeDashoffset: ORBIT_LENGTH, opacity: 0 }}
+                animate={{ strokeDashoffset: 0, opacity: 0.9 }}
                 transition={{ duration: 1.1, delay: 0.15 + i * 0.16, ease: 'easeInOut' }}
               />
             ))}

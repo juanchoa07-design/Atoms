@@ -2,13 +2,15 @@ import { metrics, metricsTitle, ui } from '../content/site'
 import { useLang } from '../lib/lang'
 import { Reveal } from './ui/Reveal'
 import CountUp from './reactbits/CountUp'
+import { OrbitRings } from './ui/AtomArt'
 
 export function Metrics() {
   const { t } = useLang()
 
   return (
-    <section className="border-t border-line">
-      <div className="mx-auto w-full max-w-6xl px-6 py-20 sm:py-24">
+    <section className="relative overflow-hidden border-t border-line">
+      <OrbitRings className="pointer-events-none absolute -left-20 top-1/2 h-[26rem] w-[26rem] -translate-y-1/2 text-brand opacity-[0.06]" />
+      <div className="relative mx-auto w-full max-w-6xl px-6 py-20 sm:py-24">
         <Reveal className="max-w-2xl">
           <p className="eyebrow">{t(ui.metricsEyebrow)}</p>
           <h2 className="mt-4 text-3xl font-semibold sm:text-4xl">{t(metricsTitle)}</h2>
