@@ -7,7 +7,7 @@ import sharp from 'sharp'
 
 const SRC = 'FOTOS'
 const OUT = 'public/clients'
-const HEIGHT = 160
+const HEIGHT = 240
 
 const files = (await readdir(SRC)).filter((f) => f.endsWith('.png') && !f.startsWith('logo atoms'))
 const manifest = []

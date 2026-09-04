@@ -18,6 +18,7 @@
   /* Section accents — all desaturated, same tonal family as the logo so
      they add colour without turning the page into a carnival. */
   --color-accent-blue: #87abdb;
+  --color-accent-sky: #9fcbe8;
   --color-accent-peach: #e0ab93;
   --color-accent-sage: #90c0a6;
   --color-accent-lilac: #ab9bd6;
@@ -27,8 +28,10 @@
   --color-brand-deep: #6d93c8;
   --color-brand-soft: #87abdb26;
 
-  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --font-display: 'Space Grotesk', 'Inter', ui-sans-serif, system-ui, sans-serif;
+  /* Swap these two lines (and the <link> in index.html) to change the whole
+     type system. Display carries the personality, sans carries the reading. */
+  --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display: 'Bricolage Grotesque', 'Instrument Sans', ui-sans-serif, system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
 
   --radius-card: 14px;
@@ -69,7 +72,8 @@
   h2,
   h3 {
     font-family: var(--font-display);
-    letter-spacing: -0.02em;
+    font-variation-settings: 'wdth' 92;
+    letter-spacing: -0.015em;
     text-wrap: balance;
   }
 

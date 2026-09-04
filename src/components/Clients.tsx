@@ -16,14 +16,14 @@ export function Clients() {
       </Reveal>
 
       <div className="group relative mt-8 overflow-hidden [mask-image:linear-gradient(to_right,transparent,#000_10%,#000_90%,transparent)]">
-        <div className="flex w-max animate-[marquee_52s_linear_infinite] items-center gap-12 group-hover:[animation-play-state:paused] sm:gap-16">
+        <div className="flex w-max animate-[marquee_58s_linear_infinite] items-center gap-14 group-hover:[animation-play-state:paused] sm:gap-20">
           {track.map((logo, i) => (
             <img
               key={`${logo.slug}-${i}`}
               src={`${import.meta.env.BASE_URL}clients/${logo.slug}.webp`}
               alt={logo.name}
               loading="lazy"
-              className={`h-7 w-auto shrink-0 opacity-70 grayscale brightness-125 transition duration-500 hover:scale-105 hover:opacity-100 hover:brightness-100 hover:grayscale-0 sm:h-9 ${
+              className={`h-11 w-auto shrink-0 opacity-75 grayscale brightness-125 transition duration-500 hover:scale-105 hover:opacity-100 hover:brightness-100 hover:grayscale-0 sm:h-14 ${
                 logo.dark ? 'invert' : ''
               } hover:invert-0`}
             />

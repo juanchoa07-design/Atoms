@@ -123,7 +123,7 @@ export const tracks: {
   {
     id: 'training',
     icon: GraduationCap,
-    accent: 'var(--color-accent-peach)',
+    accent: 'var(--color-accent-sky)',
     label: { en: 'Training & consulting', es: 'Capacitaciones y consultorías' },
     title: { en: 'Get your team ready for AI', es: 'Preparamos a tu equipo para la IA' },
     blurb: {
@@ -310,6 +310,8 @@ export type Member = {
   role: T
   bio: T
   linkedin: string
+  /** Founders get their own row above the rest of the team. */
+  founder?: boolean
   /** Falls back to a monogram when there is no photo in public/images. */
   photo?: string
 }
@@ -317,6 +319,7 @@ export type Member = {
 export const team: Member[] = [
   {
     name: 'Matias Jorda',
+    founder: true,
     role: { en: 'Co-Founder & CEO', es: 'Co-Founder y CEO' },
     bio: {
       en: 'Your first call. Turns business problems into a concrete roadmap.',
@@ -327,6 +330,7 @@ export const team: Member[] = [
   },
   {
     name: 'Ignacio Miranda',
+    founder: true,
     role: { en: 'Co-Founder & CTO', es: 'Co-Founder y CTO' },
     bio: {
       en: 'Owns the architecture and leads the engineering behind every agent in production.',

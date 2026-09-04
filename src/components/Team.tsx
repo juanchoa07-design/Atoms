@@ -44,43 +44,49 @@ function Portrait({ member }: { member: Member }) {
 export function Team({ headless = false }: { headless?: boolean } = {}) {
   const { t } = useLang()
 
+  const founders = team.filter((member) => member.founder)
+  const rest = team.filter((member) => !member.founder)
+
+  const card = (member: Member, i: number) => (
+    <Reveal key={member.name} delay={i * 60}>
+      <article
+        className="accent-scope group h-full"
+        style={{ '--accent': ACCENTS[i % ACCENTS.length] } as CSSProperties}
+      >
+        <div className="accent-card flex h-full flex-col rounded-card p-6">
+          <div className="relative flex items-start gap-4">
+            <div className="h-14 w-14 shrink-0 overflow-hidden rounded-full border border-line bg-white/[0.03] transition-transform duration-500 group-hover:scale-105">
+              <Portrait member={member} />
+            </div>
+            <div className="min-w-0">
+              <h3 className="font-display text-base font-medium">{member.name}</h3>
+              <p className="accent-text mt-1 font-mono text-[11px] uppercase tracking-wider">{t(member.role)}</p>
+            </div>
+          </div>
+
+          <p className="relative mt-5 flex-1 text-sm leading-relaxed text-fg-muted">{t(member.bio)}</p>
+
+          <a
+            href={member.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="accent-chip relative mt-6 inline-flex w-fit items-center gap-2 rounded-full border px-4 py-2 text-[13px] font-medium transition-all duration-300 hover:gap-3"
+          >
+            <Linkedin className="h-3.5 w-3.5" strokeWidth={1.8} />
+            LinkedIn
+          </a>
+        </div>
+      </article>
+    </Reveal>
+  )
+
   const body = (
     <>
-      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        {team.map((member, i) => (
-          <Reveal key={member.name} delay={i * 60}>
-            <article
-              className="accent-scope group h-full"
-              style={{ '--accent': ACCENTS[i % ACCENTS.length] } as CSSProperties}
-            >
-              <div className="accent-card flex h-full flex-col rounded-card p-6">
-                <div className="relative flex items-start gap-4">
-                  <div className="h-14 w-14 shrink-0 overflow-hidden rounded-full border border-line bg-white/[0.03] transition-transform duration-500 group-hover:scale-105">
-                    <Portrait member={member} />
-                  </div>
-                  <div className="min-w-0">
-                    <h3 className="font-display text-base font-medium">{member.name}</h3>
-                    <p className="accent-text mt-1 font-mono text-[11px] uppercase tracking-wider">
-                      {t(member.role)}
-                    </p>
-                  </div>
-                </div>
+      {/* Founders sit on their own row, above the rest */}
+      <div className="grid gap-5 sm:grid-cols-2">{founders.map((member, i) => card(member, i))}</div>
 
-                <p className="relative mt-5 flex-1 text-sm leading-relaxed text-fg-muted">{t(member.bio)}</p>
-
-                <a
-                  href={member.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="accent-chip relative mt-6 inline-flex w-fit items-center gap-2 rounded-full border px-4 py-2 text-[13px] font-medium transition-all duration-300 hover:gap-3"
-                >
-                  <Linkedin className="h-3.5 w-3.5" strokeWidth={1.8} />
-                  LinkedIn
-                </a>
-              </div>
-            </article>
-          </Reveal>
-        ))}
+      <div className="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        {rest.map((member, i) => card(member, i + founders.length))}
       </div>
 
       <Reveal className="mt-12 border-t border-line pt-10">
