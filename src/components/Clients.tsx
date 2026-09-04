@@ -11,7 +11,7 @@ export function Clients() {
   const track = [...clients.names, ...clients.names]
 
   return (
-    <section className="grad-sink relative py-14">
+    <section className="grad-sink relative py-10 sm:py-14">
       <div className="rule-grad absolute inset-x-0 top-0" aria-hidden="true" />
       <Reveal className="mx-auto w-full max-w-6xl px-6">
         <p className="text-center text-xs uppercase tracking-[0.16em] text-fg-subtle">{t(clients.title)}</p>

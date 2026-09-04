@@ -12,7 +12,7 @@ export function TrackChooser() {
   const { t } = useLang()
 
   return (
-    <section id="explore" className="relative py-24 sm:py-32">
+    <section id="explore" className="relative py-16 sm:py-24 lg:py-32">
       <div className="rule-grad absolute inset-x-0 top-0" aria-hidden="true" />
       <div className="mx-auto w-full max-w-6xl px-6">
         <div className="grid gap-5 lg:grid-cols-2">
@@ -25,7 +25,7 @@ export function TrackChooser() {
                     className="grad-border h-full rounded-card transition-colors duration-300"
                     spotlightColor="rgba(45, 156, 219, 0.16)"
                   >
-                    <div className="relative flex h-full flex-col p-8 sm:p-10">
+                    <div className="relative flex h-full flex-col p-6 sm:p-8 lg:p-10">
                       <div className="flex items-center gap-3">
                         <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-line bg-white/[0.03] text-brand">
                           <Icon className="h-5 w-5" strokeWidth={1.6} aria-hidden="true" />

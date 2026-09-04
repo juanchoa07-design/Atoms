@@ -84,7 +84,7 @@ export function Team({ headless = false }: { headless?: boolean } = {}) {
 
   if (headless) {
     return (
-      <section id="team" className="mx-auto w-full max-w-6xl px-6 py-20 sm:py-24">
+      <section id="team" className="mx-auto w-full max-w-6xl px-6 py-14 sm:py-20 lg:py-24">
         {body}
       </section>
     )

@@ -11,7 +11,7 @@ export function TrainingPage() {
     <>
       <PageHeader eyebrow={t(trainingPage.eyebrow)} title={t(trainingPage.title)} intro={t(trainingPage.intro)} />
 
-      <section className="mx-auto w-full max-w-6xl px-6 py-20 sm:py-24">
+      <section className="mx-auto w-full max-w-6xl px-6 py-14 sm:py-20 lg:py-24">
         <OfferingList items={trainingPage.items} />
       </section>
 

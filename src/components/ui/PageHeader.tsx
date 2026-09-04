@@ -9,7 +9,7 @@ export function PageHeader({ eyebrow, title, intro }: { eyebrow: string; title: 
 
   return (
     <header className="border-b border-line">
-      <div className="mx-auto w-full max-w-6xl px-6 pb-16 pt-32 sm:pb-20 sm:pt-40">
+      <div className="mx-auto w-full max-w-6xl px-6 pb-12 pt-28 sm:pb-20 sm:pt-40">
         <Reveal>
           <a
             href="#/"

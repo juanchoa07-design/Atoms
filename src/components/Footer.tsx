@@ -16,7 +16,7 @@ export function Footer() {
   return (
     <footer className="relative bg-ink-deep">
       <div className="rule-grad absolute inset-x-0 top-0" aria-hidden="true" />
-      <div className="mx-auto w-full max-w-6xl px-6 py-16">
+      <div className="mx-auto w-full max-w-6xl px-6 py-12 sm:py-16">
         <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-[1.5fr_repeat(4,1fr)]">
           {/* Brand */}
           <div className="space-y-5">
@@ -71,7 +71,7 @@ export function Footer() {
           ))}
         </div>
 
-        <div className="mt-16 flex flex-col gap-2 border-t border-line pt-8 text-xs text-fg-subtle sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-12 flex flex-col sm:mt-16 gap-2 border-t border-line pt-8 text-xs text-fg-subtle sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {new Date().getFullYear()} {site.name}. {t(ui.rights)}
           </p>
