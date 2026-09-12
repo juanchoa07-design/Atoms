@@ -1,6 +1,8 @@
+import { useMemo } from 'react'
 import { ArrowRight, CalendarCheck } from 'lucide-react'
 import { hero, site } from '../content/site'
 import { useLang } from '../lib/lang'
+import { token } from '../lib/tokens'
 import { AtomMark } from './ui/AtomMark'
 import { Button } from './ui/Button'
 import Magnet from './reactbits/Magnet'
@@ -8,38 +10,41 @@ import Aurora from './reactbits/Aurora'
 import BlurText from './reactbits/BlurText'
 import GradientText from './reactbits/GradientText'
 
+/** Celeste only: in the brand system it's a detail colour, never a surface. */
+const ACCENT_GRADIENT = ['var(--color-blue)', 'var(--color-detail-hover)', 'var(--color-blue)']
+
 export function Hero() {
   const { t, lang } = useLang()
+  // The shader needs real colour values, so read them off the tokens once.
+  const auroraStops = useMemo(
+    () => [token('--color-detail-hover'), token('--color-blue'), token('--color-detail-hover')],
+    [],
+  )
 
   return (
     <section id="inicio" className="relative isolate overflow-hidden">
-      {/* Backdrop: aurora band, dot grid and an oversized atom outline */}
+      {/* Backdrop: a faint celeste aurora, dot grid and an oversized atom outline */}
       <div className="pointer-events-none absolute inset-0 -z-10">
-        {/* Deep at the crown, brand charcoal by the fold */}
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,var(--color-ink-abyss)_0%,var(--color-ink-deep)_38%,var(--color-ink)_100%)]" />
-        <div className="absolute inset-x-0 top-0 h-[55vh] opacity-[0.34] [mask-image:linear-gradient(to_bottom,#000_5%,transparent_85%)]">
-          <Aurora colorStops={['#6D93C8', '#87ABDB', '#3E5675']} amplitude={0.8} blend={0.7} speed={0.45} />
+        <div className="absolute inset-x-0 top-0 h-[55vh] opacity-25 [mask-image:linear-gradient(to_bottom,#000_5%,transparent_85%)]">
+          <Aurora colorStops={auroraStops} amplitude={0.8} blend={0.7} speed={0.45} />
         </div>
         <div className="grid-backdrop absolute inset-0" />
         <AtomMark
-          className="absolute left-1/2 top-1/2 h-[46rem] w-[46rem] -translate-x-1/2 -translate-y-[55%] text-white/[0.035]"
+          className="absolute left-1/2 top-1/2 h-[46rem] w-[46rem] -translate-x-1/2 -translate-y-[55%] text-text/4"
           strokeWidth={0.35}
         />
-        <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-b from-transparent to-ink" />
+        <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-b from-transparent to-bg" />
       </div>
 
-      <div className="mx-auto flex min-h-[92svh] w-full max-w-6xl flex-col items-center justify-center px-6 py-32 text-center">
-        <p className="eyebrow text-fg-muted">{t(hero.eyebrow)}</p>
+      <div className="mx-auto flex min-h-[92svh] w-full max-w-(--container) flex-col items-center justify-center px-6 py-24 text-center">
+        <p className="text-small font-semibold text-text-muted">{t(hero.eyebrow)}</p>
 
         {/* The real heading stays plain text for search engines and screen
             readers; the animated copy below is a purely visual duplicate. */}
         <h1 className="sr-only">
           {t(hero.titleTop)} {t(hero.titleAccent)}
         </h1>
-        <div
-          aria-hidden="true"
-          className="mt-6 max-w-3xl font-display text-[clamp(2.1rem,5.2vw,3.6rem)] font-medium leading-[1.12] tracking-[-0.02em]"
-        >
+        <div aria-hidden="true" className="mt-6 max-w-5xl text-display">
           <BlurText
             key={`top-${lang}`}
             text={t(hero.titleTop)}
@@ -48,33 +53,24 @@ export function Hero() {
             direction="top"
             className="justify-center"
           />
-          <GradientText
-            key={`accent-${lang}`}
-            colors={['#6D93C8', '#a8c6ea', '#6D93C8']}
-            animationSpeed={7}
-          >
+          <GradientText key={`accent-${lang}`} colors={ACCENT_GRADIENT} animationSpeed={7}>
             {t(hero.titleAccent)}
           </GradientText>
         </div>
 
-        <p className="mt-6 max-w-xl text-[15px] leading-relaxed text-fg-muted">{t(hero.subtitle)}</p>
+        <p className="mt-6 max-w-[65ch] text-body text-text-muted">{t(hero.subtitle)}</p>
 
         <div className="mt-12 flex flex-col items-center gap-4">
           <Magnet padding={70} magnetStrength={6}>
-            <Button
-              href={site.calendly}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-9 py-4 text-base sm:px-11 sm:py-[1.15rem] sm:text-[17px]"
-            >
+            <Button href={site.calendly} target="_blank" rel="noopener noreferrer" className="px-8 py-4">
               <CalendarCheck className="h-5 w-5" />
               {t(hero.primaryCta)}
             </Button>
           </Magnet>
 
-          <Button variant="ghost" href="#/cases" className="gap-1.5 px-4 py-2 text-sm">
+          <Button variant="ghost" href="#/cases">
             {t(hero.secondaryCta)}
-            <ArrowRight className="h-3.5 w-3.5" />
+            <ArrowRight className="h-4 w-4" />
           </Button>
         </div>
       </div>

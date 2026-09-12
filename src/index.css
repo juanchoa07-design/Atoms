@@ -358,9 +358,13 @@
     transform: none;
   }
 
-  /* Faint dot grid used behind the hero */
+  /* Faint cream dot grid used behind the hero */
   .grid-backdrop {
-    background-image: radial-gradient(circle at center, #ffffff0f 1px, transparent 1px);
+    background-image: radial-gradient(
+      circle at center,
+      color-mix(in oklab, var(--color-cream) 6%, transparent) 1px,
+      transparent 1px
+    );
     background-size: 44px 44px;
     mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, #000 20%, transparent 75%);
   }

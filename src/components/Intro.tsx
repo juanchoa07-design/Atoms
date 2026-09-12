@@ -85,16 +85,14 @@ export function Intro({ onDone }: { onDone: () => void }) {
       {visible && (
         <motion.div
           key="intro"
-          className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-ink"
+          className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-bg"
           initial={{ opacity: 1 }}
           exit={{ opacity: 0, filter: 'blur(12px)' }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
         >
-          <div className="pointer-events-none absolute left-1/2 top-1/2 h-[32rem] w-[32rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand/10 blur-[120px]" />
-
           <motion.svg
             viewBox="0 0 64 64"
-            className="h-24 w-24 text-brand"
+            className="h-24 w-24 text-detail"
             fill="none"
             aria-hidden="true"
             initial={{ scale: 0.85, opacity: 0 }}
@@ -128,7 +126,7 @@ export function Intro({ onDone }: { onDone: () => void }) {
           </motion.svg>
 
           <motion.p
-            className="mt-8 text-lg font-display font-semibold tracking-tight"
+            className="mt-8 text-h3"
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1.05, ease: [0.16, 1, 0.3, 1] }}
@@ -137,7 +135,7 @@ export function Intro({ onDone }: { onDone: () => void }) {
           </motion.p>
 
           <motion.div
-            className="mt-6 h-px w-40 origin-left bg-gradient-to-r from-transparent via-brand to-transparent"
+            className="mt-6 h-px w-40 origin-left bg-gradient-to-r from-transparent via-detail to-transparent"
             initial={{ scaleX: 0, opacity: 0 }}
             animate={{ scaleX: 1, opacity: 1 }}
             transition={{ duration: 1.2, delay: 1.15, ease: [0.16, 1, 0.3, 1] }}

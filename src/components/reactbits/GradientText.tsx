@@ -1,6 +1,9 @@
 // Source: React Bits (https://reactbits.dev) — MIT.
 // Adapted: dropped `cursor-pointer`, `overflow-hidden` (it clipped descenders on
-// tight-leading headings) and `backdrop-blur`, so it works for headings.
+// tight-leading headings) and `backdrop-blur`, so it works for headings. Also
+// dropped `font-medium` so the heading's own weight shows through, and padded
+// the clipped span: at line-height 1 the descenders fall outside its box and
+// lose their fill.
 import { useState, useCallback, useEffect, useRef, type ReactNode } from 'react';
 import { motion, useMotionValue, useAnimationFrame, useTransform } from 'motion/react';
 
@@ -99,7 +102,7 @@ export default function GradientText({
 
   return (
     <motion.div
-      className={`relative mx-auto flex max-w-fit flex-row items-center justify-center rounded-[1.25rem] font-medium transition-shadow duration-500 ${showBorder ? 'py-1 px-2' : ''} ${className}`}
+      className={`relative mx-auto flex max-w-fit flex-row items-center justify-center transition-shadow duration-500 ${showBorder ? 'py-1 px-2' : ''} ${className}`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
@@ -109,7 +112,7 @@ export default function GradientText({
           style={{ ...gradientStyle, backgroundPosition }}
         >
           <div
-            className="absolute bg-black rounded-[1.25rem] z-[-1]"
+            className="absolute bg-bg rounded-[1.25rem] z-[-1]"
             style={{
               width: 'calc(100% - 2px)',
               height: 'calc(100% - 2px)',
@@ -121,7 +124,7 @@ export default function GradientText({
         </motion.div>
       )}
       <motion.div
-        className="inline-block relative z-2 text-transparent bg-clip-text"
+        className="inline-block relative z-2 pb-[0.14em] text-transparent bg-clip-text"
         style={{ ...gradientStyle, backgroundPosition, WebkitBackgroundClip: 'text' }}
       >
         {children}
