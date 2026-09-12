@@ -5,6 +5,7 @@ import { useLang } from '../lib/lang'
 import { useScrolled } from '../lib/useScrolled'
 import { LangToggle } from './ui/LangToggle'
 import { Button } from './ui/Button'
+import { Logo } from './ui/Logo'
 
 export function Nav() {
   const { t } = useLang()
@@ -20,41 +21,36 @@ export function Nav() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
-        scrolled || open ? 'border-b border-line bg-ink/80 backdrop-blur-xl' : 'border-b border-transparent'
+      className={`fixed inset-x-0 top-0 z-50 border-b transition-colors duration-300 ${
+        scrolled || open ? 'border-border bg-bg' : 'border-transparent'
       }`}
     >
-      <nav className="mx-auto flex h-[72px] w-full max-w-6xl items-center justify-between px-6">
-        <a href="#/" className="flex items-center" aria-label={site.name}>
-          <img
-            src={`${import.meta.env.BASE_URL}brand/logo.png`}
-            alt={site.name}
-            width={258}
-            height={160}
-            className="h-11 w-auto"
-          />
-        </a>
+      {/* No fixed height: the bar is as tall as the logo plus its clear zone. */}
+      <nav className="mx-auto flex w-full max-w-(--container) items-center justify-between px-6">
+        {/* The clear zone overhangs into the gutter so the logo's edge lines up
+            with the content below it. */}
+        <Logo className="-ml-3" />
 
-        <ul className="hidden items-center gap-8 md:flex">
+        <ul className="hidden items-center gap-8 lg:flex">
           {nav.map((item) => (
             <li key={item.href}>
-              <a href={item.href} className="text-sm text-fg-muted transition hover:text-fg">
+              <a href={item.href} className="text-small text-text-muted transition-colors hover:text-text">
                 {t(item.label)}
               </a>
             </li>
           ))}
         </ul>
 
-        <div className="hidden items-center gap-3 md:flex">
+        <div className="hidden items-center gap-3 lg:flex">
           <LangToggle />
-          <Button href={site.calendly} target="_blank" rel="noopener noreferrer">
+          <Button variant="outline" href={site.calendly} target="_blank" rel="noopener noreferrer">
             {t(hero.primaryCta)}
           </Button>
         </div>
 
         <button
           type="button"
-          className="text-fg md:hidden"
+          className="-mr-3 p-3 text-text lg:hidden"
           onClick={() => setOpen((v) => !v)}
           aria-expanded={open}
           aria-label={open ? 'Cerrar menú' : 'Abrir menú'}
@@ -64,21 +60,21 @@ export function Nav() {
       </nav>
 
       {open && (
-        <div className="border-y border-line bg-ink px-6 pb-8 pt-4 md:hidden">
+        <div className="border-t border-border bg-bg px-6 pb-8 pt-4 lg:hidden">
           <ul className="flex flex-col">
             {nav.map((item) => (
               <li key={item.href}>
                 <a
                   href={item.href}
                   onClick={() => setOpen(false)}
-                  className="block border-b border-line py-4 text-lg text-fg-muted transition hover:text-fg"
+                  className="block border-b border-border py-4 text-body font-medium text-text-muted transition-colors hover:text-text"
                 >
                   {t(item.label)}
                 </a>
               </li>
             ))}
           </ul>
-          <div className="mt-6 flex items-center justify-between gap-4">
+          <div className="mt-6 flex flex-wrap items-center justify-between gap-4">
             <LangToggle />
             <Button href={site.calendly} target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}>
               {t(hero.primaryCta)}
