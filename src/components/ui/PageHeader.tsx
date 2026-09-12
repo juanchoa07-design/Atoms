@@ -4,24 +4,34 @@ import { useLang } from '../../lib/lang'
 
 const back = { en: 'Back to home', es: 'Volver al inicio' }
 
-export function PageHeader({ eyebrow, title, intro }: { eyebrow: string; title: string; intro: string }) {
+type PageHeaderProps = {
+  eyebrow: string
+  title: string
+  intro: string
+  /** Match the tone of the door that leads here. */
+  tone?: 'blue' | 'orange'
+}
+
+export function PageHeader({ eyebrow, title, intro, tone = 'blue' }: PageHeaderProps) {
   const { t } = useLang()
 
   return (
-    <header className="border-b border-line">
-      <div className="mx-auto w-full max-w-6xl px-6 pb-12 pt-28 sm:pb-20 sm:pt-40">
+    // pt-18 clears the fixed header: the 48px logo plus its 12px clear zone
+    // above and below.
+    <header className={`tone-${tone} border-b border-border pt-18`}>
+      <div className="mx-auto w-full max-w-(--container) px-6 py-12 lg:py-24">
         <Reveal>
           <a
             href="#/"
-            className="inline-flex items-center gap-2 text-sm text-fg-muted transition hover:text-fg"
+            className="inline-flex items-center gap-2 text-small text-text-muted transition-colors hover:text-text"
           >
             <ArrowLeft className="h-4 w-4" />
             {t(back)}
           </a>
 
-          <p className="eyebrow mt-10">{eyebrow}</p>
-          <h1 className="mt-4 max-w-3xl font-display text-[clamp(1.85rem,3.8vw,2.8rem)] font-medium leading-[1.14]">{title}</h1>
-          <p className="mt-5 max-w-2xl text-[15px] leading-relaxed text-fg-muted">{intro}</p>
+          <p className="eyebrow mt-8">{eyebrow}</p>
+          <h1 className="mt-4 max-w-3xl text-h1">{title}</h1>
+          <p className="mt-4 max-w-[65ch] text-body text-text-muted">{intro}</p>
         </Reveal>
       </div>
     </header>

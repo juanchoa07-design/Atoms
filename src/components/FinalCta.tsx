@@ -9,26 +9,20 @@ export function FinalCta() {
   const { t } = useLang()
 
   return (
-    <section id="contact" className="grad-abyss relative isolate overflow-hidden">
-      <div className="rule-grad absolute inset-x-0 top-0 z-10" aria-hidden="true" />
-      <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute left-1/2 top-full h-[30rem] w-[46rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand/12 blur-[130px]" />
-        <AtomMark
-          className="absolute left-1/2 top-1/2 h-[32rem] w-[32rem] -translate-x-1/2 -translate-y-1/2 text-white/[0.03]"
-          strokeWidth={0.4}
-        />
-      </div>
+    <section id="contact" className="relative isolate overflow-hidden border-t border-border">
+      <AtomMark
+        className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[32rem] w-[32rem] -translate-x-1/2 -translate-y-1/2 text-text/4"
+        strokeWidth={0.4}
+      />
 
-      <div className="mx-auto w-full max-w-3xl px-6 py-20 text-center sm:py-28 lg:py-36">
+      <div className="mx-auto w-full max-w-3xl px-6 py-16 text-center lg:py-24">
         <Reveal>
-          <h2 className="font-display text-2xl font-medium sm:text-[2.1rem] sm:leading-[1.15]">{t(finalCta.title)}</h2>
-          <p className="mx-auto mt-5 max-w-lg text-[15px] leading-relaxed text-fg-muted">
-            {t(finalCta.text)}
-          </p>
+          <h2 className="text-h2">{t(finalCta.title)}</h2>
+          <p className="mx-auto mt-4 max-w-[65ch] text-body text-text-muted">{t(finalCta.text)}</p>
 
-          <div className="mt-10 flex justify-center">
-            <Button href={site.calendly} target="_blank" rel="noopener noreferrer" className="px-6 py-3 text-[15px]">
-              <CalendarCheck className="h-4 w-4" />
+          <div className="mt-8 flex justify-center">
+            <Button href={site.calendly} target="_blank" rel="noopener noreferrer">
+              <CalendarCheck className="h-5 w-5" />
               {t(finalCta.button)}
             </Button>
           </div>

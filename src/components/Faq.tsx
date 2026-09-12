@@ -11,28 +11,28 @@ export function Faq() {
   const [open, setOpen] = useState<number | null>(0)
 
   return (
-    <Section id="faq" index="05" accent="var(--color-accent-lilac)" eyebrow={t(faq.eyebrow)} title={t(faq.title)} subtitle={t(faq.subtitle)}>
+    <Section id="faq" eyebrow={t(faq.eyebrow)} title={t(faq.title)} subtitle={t(faq.subtitle)}>
       <ul className="max-w-3xl">
         {faq.items.map((item, i) => {
           const isOpen = open === i
           return (
-            <Reveal as="li" key={item.q.en} delay={i * 45} className="border-t border-line last:border-b">
+            <Reveal as="li" key={item.q.en} delay={i * 45} className="border-t border-border last:border-b">
               <h3>
                 <button
                   type="button"
                   onClick={() => setOpen(isOpen ? null : i)}
                   aria-expanded={isOpen}
-                  className="flex w-full items-start justify-between gap-6 py-6 text-left"
+                  className="group flex w-full items-start justify-between gap-6 py-6 text-left"
                 >
                   <span
-                    className={`font-display text-base font-medium transition-colors sm:text-lg ${
-                      isOpen ? 'text-fg' : 'text-fg-muted group-hover:text-fg'
+                    className={`text-body font-semibold transition-colors ${
+                      isOpen ? 'text-text' : 'text-text-muted group-hover:text-text'
                     }`}
                   >
                     {t(item.q)}
                   </span>
                   <Plus
-                    className={`mt-0.5 h-4 w-4 shrink-0 text-brand transition-transform duration-300 ${
+                    className={`mt-1 h-4 w-4 shrink-0 text-tone transition-transform duration-300 ${
                       isOpen ? 'rotate-45' : ''
                     }`}
                     strokeWidth={1.8}
@@ -51,7 +51,7 @@ export function Faq() {
                     transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
                     className="overflow-hidden"
                   >
-                    <p className="max-w-2xl pb-7 pr-10 text-[15px] leading-relaxed text-fg-muted">{t(item.a)}</p>
+                    <p className="max-w-[65ch] pb-6 pr-8 text-body text-text-muted">{t(item.a)}</p>
                   </motion.div>
                 )}
               </AnimatePresence>

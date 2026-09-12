@@ -92,6 +92,14 @@
   --radius-card: 14px;
 }
 
+/* A block's accent, set by the .tone-* classes below. `inline` makes these
+   utilities (text-tone, border-tone, bg-tone, text-tone-text) read the
+   variable where they are used, so each block can pick its own. */
+@theme inline {
+  --color-tone: var(--accent);
+  --color-tone-text: var(--accent-text);
+}
+
 /* Tokens with no Tailwind namespace. Spacing needs no mapping: Tailwind's
    default 4px step already makes p-1 … p-24 equal --space-1 … --space-24. */
 :root {
@@ -168,38 +176,55 @@
   from {
     transform: translateX(0);
   }
+  /* Half the track plus half the gap-16 between logos, so the loop is seamless. */
   to {
-    transform: translateX(calc(-50% - 1.75rem));
+    transform: translateX(calc(-50% - 2rem));
   }
 }
 
 @layer components {
-  /* Eyebrow label above section titles */
+  /* Tones: which of the two brand accents a block uses for its details.
+     Celeste is the default; orange is the strategic accent (§1). */
+  :root,
+  .tone-blue {
+    --accent: var(--color-detail);
+    --accent-text: var(--color-detail);
+  }
+
+  .tone-orange {
+    --accent: var(--color-accent);
+    /* The brand orange is 4.37:1 on ink, just short for small text (§2). */
+    --accent-text: var(--color-orange-on-dark);
+  }
+
+  /* Small label above a title. Sentence case: the manual never sets words
+     in capitals. */
   .eyebrow {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--color-brand);
+    font-size: var(--text-small);
+    line-height: var(--text-small--line-height);
+    font-weight: 600;
+    color: var(--accent-text);
   }
 
-  /* Depth: sections sink toward black and lift back to the brand charcoal. */
-  .grad-sink {
-    background: linear-gradient(180deg, var(--color-ink-deep) 0%, var(--color-ink) 55%, var(--color-ink) 100%);
+  /* Card from §8: surface, hairline border, 12px corners, no shadow. */
+  .card {
+    background: var(--color-surface);
+    border: var(--border-width) solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-6);
+    transition:
+      border-color 0.3s ease,
+      transform 0.3s ease;
   }
 
-  .grad-rise {
-    background: linear-gradient(180deg, var(--color-ink) 0%, var(--color-ink-deep) 100%);
+  /* A card that is a link lifts and takes its tone on the edge. */
+  .group:hover .card-link,
+  .group:focus-visible .card-link {
+    border-color: var(--accent);
+    transform: translateY(-4px);
   }
 
-  .grad-abyss {
-    background:
-      radial-gradient(120% 90% at 50% 0%, color-mix(in oklab, var(--color-brand) 12%, transparent) 0%, transparent 62%),
-      linear-gradient(180deg, var(--color-ink) 0%, var(--color-ink-deep) 45%, var(--color-ink-abyss) 100%);
-  }
-
-  /* A hairline that fades in from the edges with a hint of brand at centre. */
+  /* Legacy hairline, only the footer still uses it. Goes with step 7. */
   .rule-grad {
     height: 1px;
     border: 0;
@@ -211,136 +236,6 @@
       var(--color-line) 82%,
       transparent 100%
     );
-  }
-
-  /* Gradient border for the home doors, painted with a masked pseudo-element. */
-  .grad-border {
-    position: relative;
-    background:
-      linear-gradient(160deg, color-mix(in oklab, var(--color-ink-raised) 92%, var(--color-brand)) 0%, var(--color-ink) 70%);
-  }
-
-  .grad-border::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    padding: 1px;
-    background: linear-gradient(
-      150deg,
-      color-mix(in oklab, var(--color-brand) 55%, transparent) 0%,
-      var(--color-line) 38%,
-      transparent 70%
-    );
-    -webkit-mask:
-      linear-gradient(#000 0 0) content-box,
-      linear-gradient(#000 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    opacity: 0.7;
-    transition: opacity 0.4s ease;
-    pointer-events: none;
-  }
-
-  .group:hover > .grad-border::before,
-  .grad-border:hover::before {
-    opacity: 1;
-  }
-
-  /* Cream-to-periwinkle wash for a headline word. */
-  .text-grad {
-    background: linear-gradient(100deg, var(--color-fg) 0%, var(--color-brand) 55%, var(--color-brand-deep) 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
-
-  /* Anything inside an accent scope reads --accent; defaults to the brand. */
-  .accent-scope {
-    --accent: var(--color-brand);
-  }
-
-  .accent-chip {
-    color: var(--accent);
-    background: color-mix(in oklab, var(--accent) 14%, transparent);
-    border-color: color-mix(in oklab, var(--accent) 30%, transparent);
-  }
-
-  .accent-text {
-    color: var(--accent);
-  }
-
-  .accent-rule {
-    background: color-mix(in oklab, var(--accent) 60%, transparent);
-  }
-
-  /* Accent-tinted card: lit edge plus a bloom that grows on hover. */
-  .accent-card {
-    position: relative;
-    background:
-      radial-gradient(120% 80% at 0% 0%, color-mix(in oklab, var(--accent) 10%, transparent) 0%, transparent 58%),
-      linear-gradient(160deg, var(--color-ink-raised) 0%, var(--color-ink) 72%);
-    transition: box-shadow 0.45s ease, transform 0.45s ease;
-  }
-
-  .accent-card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    padding: 1px;
-    background: linear-gradient(
-      150deg,
-      color-mix(in oklab, var(--accent) 60%, transparent) 0%,
-      var(--color-line) 40%,
-      transparent 72%
-    );
-    -webkit-mask:
-      linear-gradient(#000 0 0) content-box,
-      linear-gradient(#000 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    opacity: 0.65;
-    transition: opacity 0.45s ease;
-    pointer-events: none;
-  }
-
-  .group:hover .accent-card,
-  .accent-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 22px 50px -30px color-mix(in oklab, var(--accent) 70%, transparent);
-  }
-
-  .group:hover .accent-card::before,
-  .accent-card:hover::before {
-    opacity: 1;
-  }
-
-  /* Soft colour bloom sitting behind a section. */
-  .accent-bloom {
-    background: radial-gradient(closest-side, color-mix(in oklab, var(--accent) 26%, transparent), transparent);
-  }
-
-  /* Primary CTA: a sheen that sweeps across on hover. */
-  .btn-shine {
-    position: relative;
-    isolation: isolate;
-    overflow: hidden;
-  }
-
-  .btn-shine::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(105deg, transparent 38%, rgb(255 255 255 / 0.5) 50%, transparent 62%);
-    transform: translateX(-130%);
-    transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
-    pointer-events: none;
-  }
-
-  .btn-shine:hover::after,
-  .btn-shine:focus-visible::after {
-    transform: translateX(130%);
   }
 
   /* Scroll reveal — opt out entirely under reduced motion */

@@ -11,7 +11,7 @@ export function AboutPage() {
 
   return (
     <>
-      <PageHeader eyebrow={t(ui.teamEyebrow)} title={t(track.title)} intro={t(track.blurb)} />
+      <PageHeader tone="orange" eyebrow={t(ui.teamEyebrow)} title={t(track.title)} intro={t(track.blurb)} />
       <Team headless />
       <Metrics />
       <FinalCta />

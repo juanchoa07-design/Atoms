@@ -3,6 +3,7 @@ import { podcast, ui } from '../content/site'
 import { useLang } from '../lib/lang'
 import { Section } from './ui/Section'
 import { Reveal } from './ui/Reveal'
+import { Button } from './ui/Button'
 
 export function Podcast({ headless = false }: { headless?: boolean } = {}) {
   const { t } = useLang()
@@ -18,7 +19,7 @@ export function Podcast({ headless = false }: { headless?: boolean } = {}) {
               rel="noopener noreferrer"
               className="group block"
             >
-              <div className="relative aspect-video overflow-hidden rounded-lg border border-line bg-ink-raised">
+              <div className="relative aspect-video overflow-hidden rounded-md border border-border bg-surface transition-colors duration-300 group-hover:border-tone">
                 <img
                   src={`https://i.ytimg.com/vi/${episode.videoId}/hqdefault.jpg`}
                   alt=""
@@ -26,49 +27,44 @@ export function Podcast({ headless = false }: { headless?: boolean } = {}) {
                   className="h-full w-full object-cover opacity-80 transition duration-500 group-hover:scale-[1.03] group-hover:opacity-100"
                 />
                 <span className="absolute inset-0 flex items-center justify-center">
-                  <span className="flex h-12 w-12 items-center justify-center rounded-full bg-ink/70 backdrop-blur transition group-hover:bg-brand group-hover:text-[#04121c]">
+                  <span className="flex h-12 w-12 items-center justify-center rounded-full bg-bg text-text transition-colors group-hover:bg-tone group-hover:text-ink">
                     <Play className="ml-0.5 h-4 w-4 fill-current" />
                   </span>
                 </span>
               </div>
 
-              <div className="pt-5">
-                <div className="flex items-center gap-3 font-mono text-[11px] text-fg-subtle">
-                  <span className="text-brand">{episode.n}</span>
+              <div className="pt-4">
+                <div className="flex items-center gap-3 text-small text-text-muted">
+                  <span className="font-semibold text-tone-text">{episode.n}</span>
                   <span>{t(episode.date)}</span>
                 </div>
-                <h3 className="mt-3 font-display text-base font-medium leading-snug">{episode.title}</h3>
-                <p className="mt-2 text-sm text-fg-muted">{episode.guest}</p>
+                <h3 className="mt-2 text-body font-semibold">{episode.title}</h3>
+                <p className="mt-1 text-small text-text-muted">{episode.guest}</p>
               </div>
             </a>
           </Reveal>
         ))}
       </div>
 
-      <Reveal className="mt-10">
-        <a
-          href="https://www.youtube.com/@TheAtomVoice"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 text-sm font-medium text-brand transition hover:gap-3"
-        >
+      <Reveal className="mt-8">
+        <Button variant="ghost" href="https://www.youtube.com/@TheAtomVoice" target="_blank" rel="noopener noreferrer">
           {t(podcast.cta)}
           <ArrowUpRight className="h-4 w-4" />
-        </a>
+        </Button>
       </Reveal>
     </>
   )
 
   if (headless) {
     return (
-      <section id="podcast" className="mx-auto w-full max-w-6xl px-6 py-24 sm:py-28">
+      <section id="podcast" className="tone-orange mx-auto w-full max-w-(--container) px-6 py-12 lg:py-24">
         {body}
       </section>
     )
   }
 
   return (
-    <Section id="podcast" eyebrow={t(ui.podcastEyebrow)} title={t(podcast.title)} subtitle={t(podcast.blurb)}>
+    <Section id="podcast" tone="orange" eyebrow={t(ui.podcastEyebrow)} title={t(podcast.title)} subtitle={t(podcast.blurb)}>
       {body}
     </Section>
   )

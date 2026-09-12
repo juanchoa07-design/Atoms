@@ -9,7 +9,7 @@ export function PodcastPage() {
 
   return (
     <>
-      <PageHeader eyebrow={t(podcast.kicker)} title={t(podcast.title)} intro={t(podcast.blurb)} />
+      <PageHeader tone="orange" eyebrow={t(podcast.kicker)} title={t(podcast.title)} intro={t(podcast.blurb)} />
       <Podcast headless />
       <FinalCta />
     </>

@@ -14,9 +14,9 @@ export function CasesPage() {
       <PageHeader eyebrow={t(casesPage.eyebrow)} title={t(casesPage.title)} intro={t(casesPage.intro)} />
 
       {casesPage.items.length === 0 && (
-        <section className="mx-auto w-full max-w-6xl px-6 pt-20">
+        <section className="mx-auto w-full max-w-(--container) px-6 pt-12 lg:pt-24">
           <Reveal>
-            <p className="max-w-xl text-[15px] leading-relaxed text-fg-muted">{t(casesPage.emptyNote)}</p>
+            <p className="max-w-[65ch] text-body text-text-muted">{t(casesPage.emptyNote)}</p>
           </Reveal>
         </section>
       )}

@@ -15,14 +15,14 @@ export function ServicesPage() {
     <>
       <PageHeader eyebrow={t(servicesPage.eyebrow)} title={t(servicesPage.title)} intro={t(servicesPage.intro)} />
 
-      <section className="mx-auto w-full max-w-6xl px-6 py-14 sm:py-20 lg:py-24">
-        <div className="space-y-20">
+      <section className="mx-auto w-full max-w-(--container) px-6 py-12 lg:py-24">
+        <div className="space-y-16 lg:space-y-24">
           {servicesPage.groups.map((group) => (
             <div key={group.id}>
               <Reveal className="max-w-2xl">
                 <p className="eyebrow">{t(group.kicker)}</p>
-                <h2 className="mt-3 font-display text-xl font-medium sm:text-2xl">{t(group.title)}</h2>
-                <p className="mt-3 text-[15px] leading-relaxed text-fg-muted">{t(group.blurb)}</p>
+                <h2 className="mt-2 text-h2">{t(group.title)}</h2>
+                <p className="mt-4 max-w-[65ch] text-body text-text-muted">{t(group.blurb)}</p>
               </Reveal>
               <OfferingList items={group.items} />
             </div>
