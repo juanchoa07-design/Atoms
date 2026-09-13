@@ -431,8 +431,8 @@ export const finalCta = {
 }
 
 /**
- * Copy for the booking funnel: the dialog, the line under each button, the
- * phone bar and the desktop nudge. The facts come from the Calendly event
+ * Copy for the booking funnel: the dialog, the line under the hero button,
+ * the phone bar and the desktop nudge. The facts come from the Calendly event
  * itself: 30 minutes on Google Meet, no payment set up, "+20 clientes" and
  * "Estamos abriendo cupos" in its own description. If the event changes,
  * change this too.
@@ -453,7 +453,7 @@ export const booking = {
   fallback: { en: 'Calendar not loading?', es: '¿No carga el calendario?' } satisfies T,
   fallbackLink: { en: 'Open it in Calendly', es: 'Abrilo en Calendly' } satisfies T,
   close: { en: 'Close', es: 'Cerrar' } satisfies T,
-  /** Under the buttons: what clicking gets you, so there's less to wonder about. */
+  /** Under the hero button only: repeated under every button it was too much. */
   reassurance: {
     en: '30 min on Google Meet · Free · With a founder',
     es: '30 min por Google Meet · Sin costo · Con un fundador',

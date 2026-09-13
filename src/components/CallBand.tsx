@@ -1,5 +1,4 @@
 import type { T } from '../content/site'
-import { booking } from '../content/site'
 import { useLang } from '../lib/lang'
 import { Reveal } from './ui/Reveal'
 import { OrbitRings } from './ui/AtomArt'
@@ -27,9 +26,8 @@ export function CallBand({ title, text, tone = 'blue' }: CallBandProps) {
           <p className="mt-4 max-w-[65ch] text-body text-text-muted">{t(text)}</p>
         </Reveal>
 
-        <Reveal className="shrink-0 lg:text-right">
+        <Reveal className="shrink-0">
           <CallButton />
-          <p className="mt-3 text-small text-text-muted">{t(booking.reassurance)}</p>
         </Reveal>
       </div>
     </section>
