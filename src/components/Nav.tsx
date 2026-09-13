@@ -1,15 +1,19 @@
 import { useEffect, useState } from 'react'
 import { Menu, X } from 'lucide-react'
-import { nav, site, hero } from '../content/site'
+import { nav } from '../content/site'
 import { useLang } from '../lib/lang'
 import { useScrolled } from '../lib/useScrolled'
 import { LangToggle } from './ui/LangToggle'
-import { Button } from './ui/Button'
+import { CallButton } from './ui/CallButton'
 import { Logo } from './ui/Logo'
 
 export function Nav() {
   const { t } = useLang()
   const scrolled = useScrolled(16)
+  // Past the hero, the header CTA becomes the filled button: from there on it
+  // is the one call to action always in view.
+  const [heroOffset] = useState(() => Math.round(window.innerHeight * 0.6))
+  const pastHero = useScrolled(heroOffset)
   const [open, setOpen] = useState(false)
 
   useEffect(() => {
@@ -43,9 +47,7 @@ export function Nav() {
 
         <div className="hidden items-center gap-3 lg:flex">
           <LangToggle />
-          <Button variant="outline" href={site.calendly} target="_blank" rel="noopener noreferrer">
-            {t(hero.primaryCta)}
-          </Button>
+          <CallButton variant={pastHero ? 'primary' : 'outline'} />
         </div>
 
         <button
@@ -76,9 +78,7 @@ export function Nav() {
           </ul>
           <div className="mt-6 flex flex-wrap items-center justify-between gap-4">
             <LangToggle />
-            <Button href={site.calendly} target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}>
-              {t(hero.primaryCta)}
-            </Button>
+            <CallButton onClick={() => setOpen(false)} />
           </div>
         </div>
       )}

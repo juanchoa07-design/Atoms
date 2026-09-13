@@ -1,7 +1,6 @@
-import { CalendarCheck } from 'lucide-react'
-import { finalCta, site } from '../content/site'
+import { booking, finalCta } from '../content/site'
 import { useLang } from '../lib/lang'
-import { Button } from './ui/Button'
+import { CallButton } from './ui/CallButton'
 import { Reveal } from './ui/Reveal'
 import { AtomMark } from './ui/AtomMark'
 
@@ -21,11 +20,9 @@ export function FinalCta() {
           <p className="mx-auto mt-4 max-w-[65ch] text-body text-text-muted">{t(finalCta.text)}</p>
 
           <div className="mt-8 flex justify-center">
-            <Button href={site.calendly} target="_blank" rel="noopener noreferrer">
-              <CalendarCheck className="h-5 w-5" />
-              {t(finalCta.button)}
-            </Button>
+            <CallButton>{t(finalCta.button)}</CallButton>
           </div>
+          <p className="mt-4 text-small text-text-muted">{t(booking.proof)}</p>
         </Reveal>
       </div>
     </section>

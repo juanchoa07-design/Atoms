@@ -5,8 +5,8 @@ export const faq = {
   eyebrow: { en: 'FAQ', es: 'FAQ' } satisfies T,
   title: { en: 'Questions clients ask', es: 'Preguntas que nos hacen los clientes' } satisfies T,
   subtitle: {
-    en: "If yours isn't here, send it through the form.",
-    es: 'Si la tuya no está, escribinos por el formulario.',
+    en: "If yours isn't here, ask us on the call.",
+    es: 'Si la tuya no está, preguntanos en la llamada.',
   } satisfies T,
   items: [
     {

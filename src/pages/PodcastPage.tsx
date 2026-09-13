@@ -1,7 +1,8 @@
-import { podcast } from '../content/site'
+import { callBands, podcast } from '../content/site'
 import { useLang } from '../lib/lang'
 import { PageHeader } from '../components/ui/PageHeader'
 import { Podcast } from '../components/Podcast'
+import { CallBand } from '../components/CallBand'
 import { FinalCta } from '../components/FinalCta'
 
 export function PodcastPage() {
@@ -11,6 +12,7 @@ export function PodcastPage() {
     <>
       <PageHeader tone="orange" eyebrow={t(podcast.kicker)} title={t(podcast.title)} intro={t(podcast.blurb)} />
       <Podcast headless />
+      <CallBand {...callBands.podcast} />
       <FinalCta />
     </>
   )

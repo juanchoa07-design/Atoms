@@ -1,7 +1,9 @@
 import { trainingPage } from '../content/catalog'
+import { callBands } from '../content/site'
 import { useLang } from '../lib/lang'
 import { PageHeader } from '../components/ui/PageHeader'
 import { OfferingList } from '../components/ui/OfferingList'
+import { CallBand } from '../components/CallBand'
 import { FinalCta } from '../components/FinalCta'
 
 export function TrainingPage() {
@@ -15,6 +17,7 @@ export function TrainingPage() {
         <OfferingList items={trainingPage.items} />
       </section>
 
+      <CallBand {...callBands.training} />
       <FinalCta />
     </>
   )

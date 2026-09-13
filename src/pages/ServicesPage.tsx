@@ -1,8 +1,10 @@
 import { servicesPage } from '../content/catalog'
+import { callBands } from '../content/site'
 import { useLang } from '../lib/lang'
 import { PageHeader } from '../components/ui/PageHeader'
 import { OfferingList } from '../components/ui/OfferingList'
 import { Reveal } from '../components/ui/Reveal'
+import { CallBand } from '../components/CallBand'
 import { Process } from '../components/Process'
 import { Integrations } from '../components/Integrations'
 import { Metrics } from '../components/Metrics'
@@ -30,6 +32,7 @@ export function ServicesPage() {
         </div>
       </section>
 
+      <CallBand {...callBands.services} />
       <Process />
       <Integrations />
       <Metrics />

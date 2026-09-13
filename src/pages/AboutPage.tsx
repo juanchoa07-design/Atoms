@@ -1,7 +1,8 @@
-import { tracks, ui } from '../content/site'
+import { callBands, tracks, ui } from '../content/site'
 import { useLang } from '../lib/lang'
 import { PageHeader } from '../components/ui/PageHeader'
 import { Team } from '../components/Team'
+import { CallBand } from '../components/CallBand'
 import { Metrics } from '../components/Metrics'
 import { FinalCta } from '../components/FinalCta'
 
@@ -13,6 +14,7 @@ export function AboutPage() {
     <>
       <PageHeader tone="orange" eyebrow={t(ui.teamEyebrow)} title={t(track.title)} intro={t(track.blurb)} />
       <Team headless />
+      <CallBand {...callBands.about} />
       <Metrics />
       <FinalCta />
     </>

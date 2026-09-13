@@ -1,10 +1,11 @@
 import { useMemo } from 'react'
-import { ArrowRight, CalendarCheck } from 'lucide-react'
-import { hero, site } from '../content/site'
+import { ArrowRight } from 'lucide-react'
+import { booking, hero } from '../content/site'
 import { useLang } from '../lib/lang'
 import { token } from '../lib/tokens'
 import { AtomMark } from './ui/AtomMark'
 import { Button } from './ui/Button'
+import { CallButton } from './ui/CallButton'
 import Magnet from './reactbits/Magnet'
 import Aurora from './reactbits/Aurora'
 import BlurText from './reactbits/BlurText'
@@ -62,11 +63,11 @@ export function Hero() {
 
         <div className="mt-12 flex flex-col items-center gap-4">
           <Magnet padding={70} magnetStrength={6}>
-            <Button href={site.calendly} target="_blank" rel="noopener noreferrer" className="px-8 py-4">
-              <CalendarCheck className="h-5 w-5" />
-              {t(hero.primaryCta)}
-            </Button>
+            <CallButton className="px-8 py-4" />
           </Magnet>
+          {/* What the call is, right under the button: less to wonder about
+              before clicking. */}
+          <p className="text-small text-text-muted">{t(booking.reassurance)}</p>
 
           <Button variant="ghost" href="#/cases">
             {t(hero.secondaryCta)}

@@ -1,5 +1,7 @@
 import { ArrowLeft } from 'lucide-react'
+import { booking } from '../../content/site'
 import { Reveal } from './Reveal'
+import { CallButton } from './CallButton'
 import { useLang } from '../../lib/lang'
 
 const back = { en: 'Back to home', es: 'Volver al inicio' }
@@ -32,6 +34,12 @@ export function PageHeader({ eyebrow, title, intro, tone = 'blue' }: PageHeaderP
           <p className="eyebrow mt-8">{eyebrow}</p>
           <h1 className="mt-4 max-w-3xl text-h1">{title}</h1>
           <p className="mt-4 max-w-[65ch] text-body text-text-muted">{intro}</p>
+
+          {/* Every page opens with the way to book, not only the home. */}
+          <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
+            <CallButton />
+            <p className="text-small text-text-muted">{t(booking.reassurance)}</p>
+          </div>
         </Reveal>
       </div>
     </header>

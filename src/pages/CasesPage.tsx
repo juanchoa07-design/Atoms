@@ -1,7 +1,8 @@
-import { casesPage } from '../content/site'
+import { callBands, casesPage } from '../content/site'
 import { useLang } from '../lib/lang'
 import { PageHeader } from '../components/ui/PageHeader'
 import { Clients } from '../components/Clients'
+import { CallBand } from '../components/CallBand'
 import { Metrics } from '../components/Metrics'
 import { FinalCta } from '../components/FinalCta'
 import { Reveal } from '../components/ui/Reveal'
@@ -22,6 +23,7 @@ export function CasesPage() {
       )}
 
       <Clients />
+      <CallBand {...callBands.cases} />
       <Metrics />
       <FinalCta />
     </>

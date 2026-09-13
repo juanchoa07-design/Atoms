@@ -430,6 +430,100 @@ export const finalCta = {
   button: { en: 'Schedule discovery call', es: 'Agendar llamada' } satisfies T,
 }
 
+/**
+ * Copy for the booking funnel: the dialog, the line under each button, the
+ * phone bar and the desktop nudge. The facts come from the Calendly event
+ * itself: 30 minutes on Google Meet, no payment set up, "+20 clientes" and
+ * "Estamos abriendo cupos" in its own description. If the event changes,
+ * change this too.
+ */
+export const booking = {
+  eyebrow: { en: 'Discovery call · 30 min', es: 'Discovery call · 30 min' } satisfies T,
+  title: { en: 'Book your call', es: 'Agendá tu llamada' } satisfies T,
+  subtitle: {
+    en: 'Pick a time. In 30 minutes we get to know your situation and see how we can help.',
+    es: 'Elegí un horario. En 30 minutos entendemos tu situación y vemos cómo te podemos ayudar.',
+  } satisfies T,
+  bookedTitle: { en: "You're booked!", es: '¡Listo, quedó agendada!' } satisfies T,
+  bookedText: {
+    en: 'The invite, with the Google Meet link, is on its way to your inbox.',
+    es: 'Te va a llegar la invitación por mail, con el link de Google Meet.',
+  } satisfies T,
+  loading: { en: 'Loading the calendar…', es: 'Cargando el calendario…' } satisfies T,
+  fallback: { en: 'Calendar not loading?', es: '¿No carga el calendario?' } satisfies T,
+  fallbackLink: { en: 'Open it in Calendly', es: 'Abrilo en Calendly' } satisfies T,
+  close: { en: 'Close', es: 'Cerrar' } satisfies T,
+  /** Under the buttons: what clicking gets you, so there's less to wonder about. */
+  reassurance: {
+    en: '30 min on Google Meet · Free · With a founder',
+    es: '30 min por Google Meet · Sin costo · Con un fundador',
+  } satisfies T,
+  proof: {
+    en: 'Over 20 clients already automate with us.',
+    es: 'Más de 20 clientes ya automatizan con nosotros.',
+  } satisfies T,
+  barNote: { en: 'Slots open · 30 min, free', es: 'Cupos abiertos · 30 min sin costo' } satisfies T,
+  nudgeEyebrow: { en: 'Now opening slots', es: 'Estamos abriendo cupos' } satisfies T,
+  nudgeTitle: { en: 'Shall we talk for 30 minutes?', es: '¿Lo hablamos 30 minutos?' } satisfies T,
+  nudgeText: {
+    en: "Tell us where you are and we'll tell you how we can help. Free, and with a founder.",
+    es: 'Contanos tu situación y te decimos cómo te podemos ayudar. Sin costo y con un fundador.',
+  } satisfies T,
+}
+
+type Band = { title: T; text: T; tone?: 'blue' | 'orange' }
+
+/**
+ * The call-to-action band on each page, written for the doubt a visitor is
+ * likely to have at that point. The team and the podcast keep their orange.
+ */
+export const callBands: Record<'home' | 'services' | 'training' | 'about' | 'podcast' | 'cases', Band> = {
+  home: {
+    title: { en: 'Not sure where to start?', es: '¿No sabés por dónde empezar?' },
+    text: {
+      en: "Tell us your situation in a 30-minute call and we'll tell you what's worth automating first.",
+      es: 'Contanos tu situación en una llamada de 30 minutos y te decimos qué conviene automatizar primero.',
+    },
+  },
+  services: {
+    title: { en: 'Which of these does your company need?', es: '¿Cuál de estos necesita tu empresa?' },
+    text: {
+      en: "Let's work it out together: in 30 minutes we learn your process and tell you what we'd build.",
+      es: 'Lo vemos juntos: en 30 minutos entendemos tu proceso y te decimos qué construiríamos.',
+    },
+  },
+  training: {
+    title: { en: 'Is your team ready for AI?', es: '¿Tu equipo está listo para la IA?' },
+    text: {
+      en: 'On a call we see where your team stands today and which training or consulting format fits.',
+      es: 'En una llamada vemos dónde está tu equipo hoy y qué formato de capacitación o consultoría le sirve.',
+    },
+  },
+  about: {
+    tone: 'orange',
+    title: { en: 'Talk straight to the founders', es: 'Hablá directo con los fundadores' },
+    text: {
+      en: 'Your first call is with Matias, our CEO. No salespeople, no middlemen.',
+      es: 'La primera llamada la tomás con Matias, nuestro CEO. Sin vendedores ni intermediarios.',
+    },
+  },
+  podcast: {
+    tone: 'orange',
+    title: { en: 'Still thinking about AI for your company?', es: '¿Te quedaste pensando en IA para tu empresa?' },
+    text: {
+      en: "From the episode to your business: book 30 minutes and we'll apply it to your case.",
+      es: 'Del episodio a tu negocio: agendá 30 minutos y lo bajamos a tu caso.',
+    },
+  },
+  cases: {
+    title: { en: 'Want to be the next case?', es: '¿Querés ser el próximo caso?' },
+    text: {
+      en: "Tell us what you want to automate and we'll tell you how we'd do it, in 30 minutes.",
+      es: 'Contanos qué querés automatizar y te decimos cómo lo haríamos, en 30 minutos.',
+    },
+  },
+}
+
 export const ui = {
   servicesEyebrow: { en: 'Service', es: 'Servicios' } satisfies T,
   servicesTitle: { en: 'What we build', es: 'Lo que hacemos' } satisfies T,
