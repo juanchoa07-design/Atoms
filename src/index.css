@@ -5,8 +5,20 @@
  * source of truth for colour, type, spacing and shape. Change a value there
  * first, then here. `static` puts every token on :root even when no utility
  * uses it, so inline styles and canvas code can read them too.
+ *
+ * The resets drop Tailwind's default palette, type sizes, font stacks, radii
+ * and shadows, so a class like `text-gray-400`, `text-lg` or `shadow-md`
+ * produces nothing instead of an off-brand value.
  */
 @theme static {
+  --color-*: initial;
+  --font-*: initial;
+  --text-*: initial;
+  --radius-*: initial;
+  --shadow-*: initial;
+  --inset-shadow-*: initial;
+  --drop-shadow-*: initial;
+
   /* Paleta oficial [manual] */
   --color-ink: #2b2a2a;
   --color-cream: #fce9e4;
@@ -60,36 +72,6 @@
   --radius-md: 12px;
   --radius-lg: 20px;
   --radius-full: 9999px;
-
-  /* Legacy names the components still use. Each migration step moves
-     components off them, and the last step deletes this block. */
-  --color-ink-deep: #1a1919;
-  --color-ink-abyss: #100f0f;
-  --color-ink-raised: #333131;
-  --color-ink-hover: #3b3838;
-  --color-line: #ffffff1a;
-  --color-line-strong: #ffffff33;
-
-  /* Type — the logo's warm cream, not a cold white */
-  --color-fg: #fbeae5;
-  --color-fg-muted: #b3aca9;
-  --color-fg-subtle: #9c9593;
-
-  /* Section accents — all desaturated, same tonal family as the logo so
-     they add colour without turning the page into a carnival. */
-  --color-accent-blue: #87abdb;
-  --color-accent-sky: #9fcbe8;
-  --color-accent-peach: #e0ab93;
-  --color-accent-sage: #90c0a6;
-  --color-accent-lilac: #ab9bd6;
-
-  /* Brand — the logo's soft periwinkle */
-  --color-brand: #87abdb;
-  --color-brand-deep: #6d93c8;
-  --color-brand-soft: #87abdb26;
-  --font-display: var(--font-sans);
-  --font-mono: var(--font-sans);
-  --radius-card: 14px;
 }
 
 /* A block's accent, set by the .tone-* classes below. `inline` makes these
@@ -135,7 +117,9 @@
 
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 88px;
+    /* The fixed header (the 48px logo plus its 12px clear zone above and
+       below) and a step of air, so anchors don't land under it. */
+    scroll-padding-top: calc(4.5rem + var(--space-4));
     -webkit-text-size-adjust: 100%;
   }
 
@@ -178,7 +162,7 @@
   }
   /* Half the track plus half the gap-16 between logos, so the loop is seamless. */
   to {
-    transform: translateX(calc(-50% - 2rem));
+    transform: translateX(calc(-50% - var(--space-8)));
   }
 }
 
@@ -217,17 +201,17 @@
       transform 0.3s ease;
   }
 
-  /* A card that is a link lifts and takes its tone on the edge. */
+  /* A card that is a link lifts a step and takes its tone on the edge. */
   .group:hover .card-link,
   .group:focus-visible .card-link {
     border-color: var(--accent);
-    transform: translateY(-4px);
+    transform: translateY(calc(-1 * var(--space-1)));
   }
 
   /* Scroll reveal — opt out entirely under reduced motion */
   .reveal {
     opacity: 0;
-    transform: translateY(16px);
+    transform: translateY(var(--space-4));
     transition:
       opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
       transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
@@ -246,7 +230,7 @@
       color-mix(in oklab, var(--color-cream) 6%, transparent) 1px,
       transparent 1px
     );
-    background-size: 44px 44px;
+    background-size: var(--space-12) var(--space-12);
     mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, #000 20%, transparent 75%);
   }
 }

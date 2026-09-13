@@ -3,14 +3,15 @@
 // tight-leading headings) and `backdrop-blur`, so it works for headings. Also
 // dropped `font-medium` so the heading's own weight shows through, and padded
 // the clipped span: at line-height 1 the descenders fall outside its box and
-// lose their fill.
+// lose their fill. `colors` is required, so no off-palette default ships, and
+// the border variant uses the --radius-lg token.
 import { useState, useCallback, useEffect, useRef, type ReactNode } from 'react';
 import { motion, useMotionValue, useAnimationFrame, useTransform } from 'motion/react';
 
 interface GradientTextProps {
   children: ReactNode;
   className?: string;
-  colors?: string[];
+  colors: string[];
   animationSpeed?: number;
   showBorder?: boolean;
   direction?: 'horizontal' | 'vertical' | 'diagonal';
@@ -21,7 +22,7 @@ interface GradientTextProps {
 export default function GradientText({
   children,
   className = '',
-  colors = ['#5227FF', '#FF9FFC', '#B497CF'],
+  colors,
   animationSpeed = 8,
   showBorder = false,
   direction = 'horizontal',
@@ -102,17 +103,17 @@ export default function GradientText({
 
   return (
     <motion.div
-      className={`relative mx-auto flex max-w-fit flex-row items-center justify-center transition-shadow duration-500 ${showBorder ? 'py-1 px-2' : ''} ${className}`}
+      className={`relative mx-auto flex max-w-fit flex-row items-center justify-center ${showBorder ? 'py-1 px-2' : ''} ${className}`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
       {showBorder && (
         <motion.div
-          className="absolute inset-0 z-0 pointer-events-none rounded-[1.25rem]"
+          className="absolute inset-0 z-0 pointer-events-none rounded-lg"
           style={{ ...gradientStyle, backgroundPosition }}
         >
           <div
-            className="absolute bg-bg rounded-[1.25rem] z-[-1]"
+            className="absolute bg-bg rounded-lg z-[-1]"
             style={{
               width: 'calc(100% - 2px)',
               height: 'calc(100% - 2px)',

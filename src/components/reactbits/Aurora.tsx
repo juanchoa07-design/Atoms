@@ -119,7 +119,8 @@ void main() {
 `;
 
 interface AuroraProps {
-  colorStops?: string[];
+  /** Adapted: required, so no off-palette default ships. The site passes token colours. */
+  colorStops: string[];
   amplitude?: number;
   blend?: number;
   time?: number;
@@ -128,7 +129,7 @@ interface AuroraProps {
 }
 
 export default function Aurora(props: AuroraProps) {
-  const { colorStops = ['#5227FF', '#7cff67', '#5227FF'], amplitude = 1.0, blend = 0.5, lightMode = false } = props;
+  const { colorStops, amplitude = 1.0, blend = 0.5, lightMode = false } = props;
   const propsRef = useRef<AuroraProps>(props);
   propsRef.current = props;
 
