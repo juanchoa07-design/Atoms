@@ -3,7 +3,8 @@ import { useId } from 'react'
 /**
  * Atom-derived decoration built from the brand mark. Everything here paints in
  * `currentColor` or the section's `--accent`, so a piece picks up whatever
- * colour the section it sits in is using.
+ * colour the section it sits in is using. The manual's own graphic elements
+ * live in BrandArt; these are the atom shapes from the logo.
  *
  * Motion uses SMIL (`animateMotion`) rather than CSS `offset-path`, because
  * SMIL works back to old Safari while `offset-path` does not. The global
@@ -66,47 +67,6 @@ export function AtomDot({ className = '' }: { className?: string }) {
       <circle cx="8" cy="8" r="2.2" fill="currentColor" />
       <circle cx="8" cy="8" r="6" stroke="currentColor" strokeWidth="0.9" opacity="0.45" />
       <circle cx="14" cy="8" r="1.2" fill="currentColor" opacity="0.8" />
-    </svg>
-  )
-}
-
-/**
- * Particle lattice: nuclei joined by bonds. Sits behind copy-heavy blocks so
- * they read as a composition rather than a wall of text.
- */
-export function ParticleLattice({ className = '' }: { className?: string }) {
-  const nodes = [
-    [10, 22],
-    [38, 12],
-    [66, 30],
-    [30, 48],
-    [58, 62],
-    [88, 46],
-    [16, 74],
-    [46, 84],
-  ] as const
-  const bonds = [
-    [0, 1],
-    [1, 2],
-    [0, 3],
-    [3, 4],
-    [2, 5],
-    [4, 5],
-    [3, 6],
-    [6, 7],
-    [4, 7],
-  ] as const
-
-  return (
-    <svg viewBox="0 0 100 100" fill="none" className={className} aria-hidden="true">
-      <g stroke="currentColor" strokeWidth="0.4" opacity="0.5">
-        {bonds.map(([a, b]) => (
-          <line key={`${a}-${b}`} x1={nodes[a][0]} y1={nodes[a][1]} x2={nodes[b][0]} y2={nodes[b][1]} />
-        ))}
-      </g>
-      {nodes.map(([cx, cy], i) => (
-        <circle key={`${cx}-${cy}`} cx={cx} cy={cy} r={i % 3 === 0 ? 1.6 : 1} fill="currentColor" opacity="0.8" />
-      ))}
     </svg>
   )
 }

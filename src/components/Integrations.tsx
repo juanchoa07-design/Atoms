@@ -2,7 +2,6 @@ import { integrations, ui } from '../content/site'
 import { useLang } from '../lib/lang'
 import { Section } from './ui/Section'
 import { Reveal } from './ui/Reveal'
-import { ParticleLattice } from './ui/AtomArt'
 
 export function Integrations() {
   const { t } = useLang()
@@ -11,13 +10,15 @@ export function Integrations() {
     <Section
       id="integrations"
       tone="orange"
+      // Cadena molecular: a network of connected nodes, which is what this
+      // section is about.
+      art="chain"
       eyebrow={t(ui.integrationsEyebrow)}
       title={t(integrations.title)}
       subtitle={t(integrations.blurb)}
     >
-      <Reveal className="relative">
-        <ParticleLattice className="pointer-events-none absolute -left-8 -top-10 h-64 w-64 text-tone opacity-15" />
-        <ul className="relative flex flex-wrap gap-3">
+      <Reveal>
+        <ul className="flex flex-wrap gap-3">
           {integrations.tools.map((tool, i) => (
             <Reveal
               as="li"

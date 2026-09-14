@@ -2,14 +2,19 @@ import { metrics, metricsTitle, ui } from '../content/site'
 import { useLang } from '../lib/lang'
 import { Reveal } from './ui/Reveal'
 import CountUp from './reactbits/CountUp'
-import { OrbitRings } from './ui/AtomArt'
+import { BrandArt } from './ui/BrandArt'
 
 export function Metrics() {
   const { t } = useLang()
 
   return (
     <section className="relative overflow-hidden border-t border-border">
-      <OrbitRings className="pointer-events-none absolute -left-20 top-1/2 h-[26rem] w-[26rem] -translate-y-1/2 text-detail opacity-5" />
+      {/* Vigilancia: this section is about operation that is watched. */}
+      <BrandArt
+        name="eye"
+        className="pointer-events-none absolute right-0 top-1/2 h-56 w-[30rem] -translate-y-1/2 opacity-[0.08]"
+      />
+
       <div className="relative mx-auto w-full max-w-(--container) px-6 py-12 lg:py-24">
         <Reveal className="max-w-2xl">
           <p className="eyebrow">{t(ui.metricsEyebrow)}</p>
