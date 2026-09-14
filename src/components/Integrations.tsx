@@ -8,7 +8,6 @@ export function Integrations() {
 
   return (
     <Section
-      split
       id="integrations"
       tone="orange"
       // Cadena molecular: a network of connected nodes, which is what this

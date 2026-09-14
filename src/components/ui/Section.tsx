@@ -12,14 +12,14 @@ type SectionProps = {
   className?: string
   /** Which brand accent the section's details use. */
   tone?: 'blue' | 'orange'
-  /** Swaps the orbit backdrop for one of the manual's graphic elements. */
+  /** One of the manual's graphic elements, beside the heading. */
   art?: 'chain' | 'eye' | 'mind'
-  /** Sits under the heading — a call to action, a note, a figure. */
+  /** Sits under the heading — a call to action, a note. */
   aside?: ReactNode
   /**
    * Puts the heading in its own column beside the content instead of above
-   * it, so the block fills the width on a wide screen. The heading stays put
-   * while the content scrolls past.
+   * it, for blocks long enough to fill that column — a list of questions,
+   * not three rows of chips.
    */
   split?: boolean
 }
@@ -49,7 +49,16 @@ export function Section({
           split ? 'lg:grid lg:grid-cols-[minmax(0,22rem)_minmax(0,1fr)] lg:gap-16' : ''
         }`}
       >
-        <Reveal className={split ? 'lg:sticky lg:top-24 lg:self-start' : 'max-w-2xl'}>
+        {/* §7 of the manual: a drawing that supports the section, whole and
+            at a readable size, level with the heading it belongs to. */}
+        {art && !split && (
+          <BrandArt
+            name={art}
+            className="pointer-events-none absolute right-0 top-0 hidden h-44 w-40 opacity-30 lg:block"
+          />
+        )}
+
+        <Reveal className={split ? 'lg:self-start' : 'max-w-2xl'}>
           <p className="eyebrow flex items-center gap-3">
             <span className="h-px w-6 bg-tone" aria-hidden="true" />
             {eyebrow}
@@ -57,19 +66,12 @@ export function Section({
           <h2 className="mt-4 text-h2">{title}</h2>
           {subtitle && <p className="mt-4 max-w-[65ch] text-body text-text-muted">{subtitle}</p>}
 
-          {/* §7 of the manual: the elements are drawings that support a
-              section, shown whole and at a readable size, not a wash behind
-              the text. Beside the heading when the block is a single column,
-              closing the content column when it is split — either way it
-              lands where the block would otherwise run empty. */}
           {aside && <div className="mt-8">{aside}</div>}
 
-          {art && !split && <BrandArt name={art} className="mt-10 hidden h-40 w-56 opacity-30 lg:block" />}
+          {art && split && <BrandArt name={art} className="mt-10 hidden h-40 w-44 opacity-30 lg:block" />}
         </Reveal>
-        <div className={split ? 'mt-8 lg:mt-0' : 'mt-8 lg:mt-12'}>
-          {children}
-          {art && split && <BrandArt name={art} className="ml-auto mt-12 hidden h-44 w-60 opacity-30 lg:block" />}
-        </div>
+
+        <div className={split ? 'mt-8 lg:mt-0' : 'mt-8 lg:mt-12'}>{children}</div>
       </div>
     </section>
   )
