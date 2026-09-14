@@ -14,6 +14,12 @@ type SectionProps = {
   tone?: 'blue' | 'orange'
   /** Swaps the orbit backdrop for one of the manual's graphic elements. */
   art?: 'chain' | 'eye' | 'mind'
+  /**
+   * Puts the heading in its own column beside the content instead of above
+   * it, so the block fills the width on a wide screen. The heading stays put
+   * while the content scrolls past.
+   */
+  split?: boolean
 }
 
 export function Section({
@@ -25,6 +31,7 @@ export function Section({
   className = '',
   tone = 'blue',
   art,
+  split = false,
 }: SectionProps) {
   return (
     <section id={id} className={`tone-${tone} relative overflow-hidden border-t border-border py-12 lg:py-24 ${className}`}>
@@ -39,8 +46,12 @@ export function Section({
         <OrbitRings className="pointer-events-none absolute -right-24 top-1/2 h-[30rem] w-[30rem] -translate-y-1/2 text-tone opacity-[0.07] sm:-right-16" />
       )}
 
-      <div className="relative mx-auto w-full max-w-(--container) px-6">
-        <Reveal className="max-w-2xl">
+      <div
+        className={`relative mx-auto w-full max-w-(--container) px-6 ${
+          split ? 'lg:grid lg:grid-cols-[minmax(0,22rem)_minmax(0,1fr)] lg:gap-16' : ''
+        }`}
+      >
+        <Reveal className={split ? 'lg:sticky lg:top-24 lg:self-start' : 'max-w-2xl'}>
           <p className="eyebrow flex items-center gap-3">
             <span className="h-px w-6 bg-tone" aria-hidden="true" />
             {eyebrow}
@@ -48,7 +59,7 @@ export function Section({
           <h2 className="mt-4 text-h2">{title}</h2>
           {subtitle && <p className="mt-4 max-w-[65ch] text-body text-text-muted">{subtitle}</p>}
         </Reveal>
-        <div className="mt-8 lg:mt-12">{children}</div>
+        <div className={split ? 'mt-8 lg:mt-0' : 'mt-8 lg:mt-12'}>{children}</div>
       </div>
     </section>
   )

@@ -471,6 +471,18 @@ export const booking = {
   } satisfies T,
 }
 
+/**
+ * Three short proofs under the button on every page header. Each one is
+ * already said elsewhere on the site: the client count comes from the
+ * Calendly event, production-not-pilots from the numbers, and talking to the
+ * builders from the team.
+ */
+export const pageProof: T[] = [
+  { en: 'Over 20 clients', es: 'Más de 20 clientes' },
+  { en: 'Systems in production, not pilots', es: 'Sistemas en producción, no pilotos' },
+  { en: 'You talk to the people who build it', es: 'Hablás con quienes lo construyen' },
+]
+
 type Band = { title: T; text: T; tone?: 'blue' | 'orange' }
 
 /**
