@@ -8,18 +8,17 @@ export function Metrics() {
   const { t } = useLang()
 
   return (
-    <section className="relative overflow-hidden border-t border-border">
-      {/* Vigilancia: this section is about operation that is watched. */}
-      <BrandArt
-        name="eye"
-        className="pointer-events-none absolute right-0 top-1/2 h-56 w-[30rem] -translate-y-1/2 opacity-[0.08]"
-      />
-
+    <section className="relative border-t border-border">
       <div className="relative mx-auto w-full max-w-(--container) px-6 py-12 lg:py-24">
-        <Reveal className="max-w-2xl">
-          <p className="eyebrow">{t(ui.metricsEyebrow)}</p>
-          <h2 className="mt-4 text-h2">{t(metricsTitle)}</h2>
-        </Reveal>
+        <div className="flex items-end justify-between gap-12">
+          <Reveal className="max-w-2xl">
+            <p className="eyebrow">{t(ui.metricsEyebrow)}</p>
+            <h2 className="mt-4 text-h2">{t(metricsTitle)}</h2>
+          </Reveal>
+
+          {/* Vigilancia: this section is about operation that is watched. */}
+          <BrandArt name="eye" className="hidden h-20 w-48 shrink-0 opacity-30 lg:block" />
+        </div>
 
         {/* The 1px gaps let the border colour show through, so the grid fades
             in as one piece: fading each cell left a grey block until the last

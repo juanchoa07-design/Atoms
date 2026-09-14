@@ -18,7 +18,7 @@ export function CallBand({ title, text, tone = 'blue' }: CallBandProps) {
 
   return (
     <section className={`tone-${tone} relative overflow-hidden border-t border-border bg-surface`}>
-      <OrbitRings className="pointer-events-none absolute -right-16 top-1/2 h-[24rem] w-[24rem] -translate-y-1/2 text-tone opacity-10" />
+      <OrbitRings className="pointer-events-none absolute right-6 top-1/2 hidden h-[20rem] w-[20rem] -translate-y-1/2 text-tone opacity-10 lg:block xl:right-16" />
 
       <div className="relative mx-auto flex w-full max-w-(--container) flex-col gap-8 px-6 py-12 lg:flex-row lg:items-center lg:justify-between lg:py-16">
         <Reveal className="max-w-2xl">

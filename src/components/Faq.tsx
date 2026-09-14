@@ -4,6 +4,7 @@ import { Plus } from 'lucide-react'
 import { faq } from '../content/faq'
 import { useLang } from '../lib/lang'
 import { Section } from './ui/Section'
+import { CallButton } from './ui/CallButton'
 import { Reveal } from './ui/Reveal'
 
 export function Faq() {
@@ -11,7 +12,15 @@ export function Faq() {
   const [open, setOpen] = useState<number | null>(0)
 
   return (
-    <Section split id="faq" eyebrow={t(faq.eyebrow)} title={t(faq.title)} subtitle={t(faq.subtitle)}>
+    <Section
+      split
+      id="faq"
+      eyebrow={t(faq.eyebrow)}
+      title={t(faq.title)}
+      subtitle={t(faq.subtitle)}
+      // The answer to whatever is not on the list is the call itself.
+      aside={<CallButton variant="outline" />}
+    >
       <ul>
         {faq.items.map((item, i) => {
           const isOpen = open === i

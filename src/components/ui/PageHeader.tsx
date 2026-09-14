@@ -3,6 +3,7 @@ import { pageProof } from '../../content/site'
 import { Reveal } from './Reveal'
 import { CallButton } from './CallButton'
 import { AtomDot, OrbitRings } from './AtomArt'
+import { BrandArt } from './BrandArt'
 import { useLang } from '../../lib/lang'
 
 const back = { en: 'Back to home', es: 'Volver al inicio' }
@@ -13,9 +14,11 @@ type PageHeaderProps = {
   intro: string
   /** Match the tone of the door that leads here. */
   tone?: 'blue' | 'orange'
+  /** Opens the page with one of the manual's figures instead of the orbit. */
+  art?: 'chain' | 'eye' | 'mind'
 }
 
-export function PageHeader({ eyebrow, title, intro, tone = 'blue' }: PageHeaderProps) {
+export function PageHeader({ eyebrow, title, intro, tone = 'blue', art }: PageHeaderProps) {
   const { t } = useLang()
 
   return (
@@ -23,8 +26,15 @@ export function PageHeader({ eyebrow, title, intro, tone = 'blue' }: PageHeaderP
     // above and below.
     <header className={`tone-${tone} relative overflow-hidden border-b border-border pt-18`}>
       {/* The copy only fills the left half on a wide screen, so the brand mark
-          takes the other one and runs off the edge. */}
-      <OrbitRings className="pointer-events-none absolute -right-24 top-1/2 hidden h-[30rem] w-[30rem] -translate-y-1/2 text-tone opacity-20 lg:block" />
+          takes the other one — whole, not cropped by the edge. */}
+      {art ? (
+        <BrandArt
+          name={art}
+          className="pointer-events-none absolute right-6 top-1/2 hidden h-[22rem] w-[18rem] -translate-y-1/2 opacity-25 lg:block xl:right-16"
+        />
+      ) : (
+        <OrbitRings className="pointer-events-none absolute right-6 top-1/2 hidden h-[26rem] w-[26rem] -translate-y-1/2 text-tone opacity-20 lg:block xl:right-16" />
+      )}
 
       <div className="relative mx-auto w-full max-w-(--container) px-6 py-12 lg:py-24">
         <Reveal className="max-w-2xl">
